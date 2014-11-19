@@ -63,6 +63,7 @@ body {
 
     html {
         font-size:125%; /* 20px */
+        height: 100%;
     }
 
     body {
@@ -71,6 +72,7 @@ body {
           -moz-background-size: cover; /* pour Firefox */
           -o-background-size: cover; /* pour Opera */
           background-size: cover; /* version standardisée */
+        height: 100%
     }
 
     img.logo {
@@ -110,12 +112,21 @@ body {
         color:white;
     }
 
-    ul.menu a:hover, ul.menu a:active {
+    ul.menu a:hover {
         font-family: 'Akkurat_Bold'; 
         font-size: 24px;
     }
 
+    ul.menu a:focus {
+        font-family: 'Akkurat_Bold'; 
+        font-size: 24px;   
+    }
+
     /* commun */
+
+    div.tabs-hide {
+        display:none;
+    }
 
     .who, .calendrier, .contact {
         background-color: #009EE0;
@@ -127,7 +138,7 @@ body {
         width:300px;
     }
 
-    .who, .calendrier, .images-sons, .contact {
+    .who, .calendrier, .contact {
     	position:absolute;
     	left:72%;
     	padding: 1em 0.4em 1em 0.4em;
@@ -141,6 +152,7 @@ body {
         font-family: 'Akkurat'; 
         font-size: 12px;
         padding-bottom:1em;
+        line-height: 1em;
     }
 
     /* contact */
@@ -199,15 +211,18 @@ body {
     /* images & sons */
 
     .images-sons {
+        position:absolute;
+        left:72%;
         background-color:#EFF8FD;
         color: #009EE0;
-        height:100%;
+        min-height: 100%;
+        padding: 0em 0.4em 0em 0.4em;
     }
 
     .images-sons h1 {
         font-family: 'Akkurat_Bold'; 
         font-size: 14px;
-        border-bottom: 1px dotted #009EE0;
+        border-bottom: 1px dashed #009EE0;
         padding-top:1em;
     }
 
@@ -230,6 +245,10 @@ body {
         color:#009EE0;
     }
 
+    .slide {
+        /*margin-top: 1.4em;*/
+    }
+
     /* calendrier */
 
     .calendrier h1 {
@@ -245,7 +264,7 @@ body {
     p.date {
         font-family: 'Akkurat_Bold'; 
         font-size: 14px;
-        border-bottom: 1px dotted white;
+        border-bottom: 1px dashed white;
         padding-bottom:0;
     }
 
