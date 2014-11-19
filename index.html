@@ -5,7 +5,10 @@
 		<title>Agua Sonora</title>
 		<link href="css/reset.css" rel="stylesheet">
 		<link href="css/style.css" rel="stylesheet">
+		<link href="css/bxslider/jquery.bxslider.css" rel="stylesheet">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+		<script src="js/bxslider/jquery.bxslider.min.js"></script>
 	</head>
 	<body>
 
@@ -74,11 +77,29 @@
 			<p class="date">06 NOVEMBRE 2014</p>
 			<p class="lieu">20:30 Altercafé – Nantes (44)</p>
 
-		</div>
+		</div>-->
 
 		<div id="images-sons" class="images-sons">
 			<h1>PHOTOS</h1>
-
+			<div class="slide">
+				<ul class="bxslider">
+					<li><img src="img/slider/slide1.jpg" alt="" title="" width="63px"/></li>
+					<li><img src="img/slider/slide2.jpg" alt="" title="" width="63px"/></li>
+					<li><img src="img/slider/slide1.jpg" alt="" title="" width="63px"/></li>
+					<li><img src="img/slider/slide2.jpg" alt="" title="" width="63px" /></li>
+					<li><img src="img/slider/slide1.jpg" alt="" title="" width="63px"/></li>
+					<li><img src="img/slider/slide2.jpg" alt="" title="" width="63px"/></li>
+					<li><img src="img/slider/slide1.jpg" alt="" title="" width="63px"/></li>
+					<li><img src="img/slider/slide2.jpg" alt="" title="" width="63px"/></li>
+					<li><img src="img/slider/slide1.jpg" alt="" title="" width="63px"/></li>
+					<li><img src="img/slider/slide2.jpg" alt="" title="" width="63px"/></li>
+					<li><img src="img/slider/slide1.jpg" alt="" title="" width="63px"/></li>
+					<li><img src="img/slider/slide2.jpg" alt="" title="" width="63px"/></li>
+					<li><img src="img/slider/slide1.jpg" alt="" title="" width="63px"/></li>
+					<li><img src="img/slider/slide2.jpg" alt="" title="" width="63px"/></li>
+				</ul>
+			</div>
+			
 			<h1>VIDÉOS</h1>
 
 			<p class="info-video">Lieu, date de la vidéo</p>
@@ -96,9 +117,9 @@
 			<p class="player">Titre morceau</p>
 			<p class="player">Titre morceau</p>
 			<p class="player">Titre morceau</p>	
-		</div>-->
+		</div>
 
-		<div id="contact" class="contact">
+		<!--<div id="contact" class="contact">
 			<ul class="nom">
 				<li>Michel MAILLARD</li>
 				<li>Tel. : 06 75 25 23 58</li>
@@ -110,7 +131,21 @@
 				<li>5 bis, Bd Léon Bureau</li>
 				<li>44200 - Nantes</li>
 			</ul>
-		</div>
+		</div>-->
+
+		<script>
+			$(document).ready(function(){
+			  $('.bxslider').bxSlider(
+			  	{
+			    slideWidth: 300,
+			    minSlides: 4,
+			    maxSlides: 4,
+			    moveSlides: 3,
+			    slideMargin: 5
+			  	}
+			  	);
+			});
+		</script>
 
 	</body>
 </html>
