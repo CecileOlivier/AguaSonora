@@ -272,6 +272,24 @@ body {
         font-family: 'Akkurat_Italic'; 
         font-size: 11px;
     }
+
+    /* page image */
+
+    .full-picture {
+        position:absolute;
+        background: url('../img/background-slider.png'); 
+          -webkit-background-size: cover; /* pour Chrome et Safari */
+          -moz-background-size: cover; /* pour Firefox */
+          -o-background-size: cover; /* pour Opera */
+          background-size: cover; /* version standardisée */
+        height: 100%;
+        width:72%; 
+        left:0; 
+    }
+
+    .full-picture img {
+        float:right;
+    }
 }
 
 
