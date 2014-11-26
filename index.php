@@ -63,7 +63,6 @@ require_once('init.php');
 
 			<div id="calendrier" class="calendrier">
 				<h1>Retrouvez-nous !</h1>
-				<p>_ _ _ </p>
 
 				<?php
 				/*$nb_date = $config['nb_date_future'];
@@ -87,7 +86,6 @@ require_once('init.php');
 				<p class="lieu">20:30 La cave à sons – L'herbergement (85)</p>
 
 				<h2>Vous avez pu nous voir...</h2>
-				<p>_ _ _ </p>
 
 				<p class="date passe">05 NOVEMBRE 2014</p>
 				<p class="lieu passe">20:30 Australian café – Nantes (44)</p>

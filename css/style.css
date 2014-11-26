@@ -15,42 +15,48 @@ body {
 
 @font-face {
     font-family: 'Akkurat';
-    src: url('../font/AKKURAT.ttf');
+    src: url('../font/AKKURAT.eot');
+    src: url('../font/AKKURAT.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Akkurat_Light';
-    src: url('../font/AKKURATL.ttf');
+    src: url('../font/AKKURATL.eot');
+    src: url('../font/AKKURATL.ttf') format('truetype');
     font-weight: lighter;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Akkurat_Bold';
-    src: url('../font/AKKURATB.ttf');
+    src: url('../font/AKKURATB.eot');
+    src: url('../font/AKKURATB.ttf') format('truetype');
     font-weight: bold;
     font-style: bold;
 }
 
 @font-face {
     font-family: 'Akkurat_Italic';
-    src: url('../font/AKKURATI.ttf');
+    src: url('../font/AKKURATI.eot');
+    src: url('../font/AKKURATI.ttf') format('truetype');
     font-weight: normal;
     font-style: italic;
 }
 
 @font-face {
     font-family: 'Akkurat_Light_Italic';
-    src: url('../font/AKKURATLI.ttf');
+    src: url('../font/AKKURATLI.eot');
+    src: url('../font/AKKURATLI.ttf') format('truetype');
     font-weight: lighter;
     font-style: italic;
 }
 
 @font-face {
     font-family: 'Akkurat_Bold_Italic';
-    src: url('../font/AKKURABI.ttf');
+    src: url('../font/AKKURABI.eot');
+    src: url('../font/AKKURABI.ttf') format('truetype');
     font-weight: bold;
     font-style: italic;
 }
@@ -75,15 +81,6 @@ body {
         height: 100%
     }
 
-    img.logo {
-        float:left;
-        position:absolute;
-        padding:0;
-        margin: auto;
-        top: 0; 
-        bottom: 0;
-    }
-
     /* menu navigation */
 
     nav {
@@ -96,10 +93,18 @@ body {
         bottom:0; 
         left:0;
         right:0;
-       /* left: 55%; */
         line-height: 1.7em;
         text-transform: uppercase;
 
+    }
+
+    img.logo {
+        float:left;
+        position:absolute;
+        padding:0;
+        margin: auto;
+        top: 0; 
+        bottom: 0;
     }
 
     ul.menu {
@@ -132,8 +137,6 @@ body {
 
     .who, .calendrier {
         background-color: rgba(0, 158, 224, 0.8);
-        /*background-color: #009EE0;*/
-        /*opacity:0.8;*/
         color:#FFFFFF;
     }
 
@@ -148,7 +151,7 @@ body {
     }
 
     .who, .calendrier {
-    	top:20%;
+    	top:25%;
     }
 
     p {
@@ -265,30 +268,46 @@ body {
     .calendrier h1 {
         font-family: 'Akkurat_Bold'; 
         font-size: 20px;
+        margin-bottom: 1em;
+    }
+
+    .calendrier h1::after {
+        content : 'ˍˍˍ';
+        position:absolute;
+        left:0.4em;
+        margin-top:0.2em;
     }
 
     .calendrier h2 {
     	font-family: 'Akkurat_Bold'; 
     	font-size: 16px;
         padding-top:3em;
+        margin-bottom: 0.2em;
+    }
+
+    .calendrier h2::after {
+        content : 'ˍˍˍ';
+        position:absolute;
+        left:0.4em;
+        margin-top:0.3em;
     }
 
     p.date {
         font-family: 'Akkurat_Bold'; 
         font-size: 14px;
-        padding-bottom:0.2em;
+        padding-bottom:0.1em;
         padding-top: 0.5em;
     }
 
     p.lieu {
         font-family: 'Akkurat_Italic'; 
-        font-size: 11px;
+        font-size: 0.57em;
         padding-bottom: 0.5em;
         border-bottom: 1px dashed white;
     }
 
     p.passe {
-        color : #EFF8FD;
+        opacity:0.6;
     }
 
     /* page image */
