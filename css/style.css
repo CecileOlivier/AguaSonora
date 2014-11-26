@@ -42,7 +42,7 @@ body {
 }
 
 @font-face {
-    font-family: 'Akkurat_Bold_Italic';
+    font-family: 'Akkurat_Light_Italic';
     src: url('../font/AKKURATLI.ttf');
     font-weight: lighter;
     font-style: italic;
@@ -50,7 +50,7 @@ body {
 
 @font-face {
     font-family: 'Akkurat_Bold_Italic';
-    src: url('../font/AKKURATBI.ttf');
+    src: url('../font/AKKURABI.ttf');
     font-weight: bold;
     font-style: italic;
 }
@@ -115,21 +115,6 @@ body {
         text-decoration:none;
     }
 
-    /*.menu a:visited {
-        font-family: 'Akkurat_Bold'; 
-        font-size: 24px;   
-    }
-
-    .menu a:hover {
-        font-family: 'Akkurat_Bold'; 
-        font-size: 24px;
-    }
-
-    .menu a:active {
-        font-family: 'Akkurat_Bold'; 
-        font-size: 24px;   
-    }*/
-
     ul.menu li.active {
         font-family: 'Akkurat_Bold'; 
         font-size: 24px;       
@@ -142,8 +127,9 @@ body {
     }
 
     .who, .calendrier {
-        background-color: #009EE0;
-        opacity:0.8;
+        background-color: rgba(0, 158, 224, 0.8);
+        /*background-color: #009EE0;*/
+        /*opacity:0.8;*/
         color:#FFFFFF;
     }
 
@@ -165,26 +151,26 @@ body {
         font-family: 'Akkurat'; 
         font-size: 12px;
         padding-bottom:1em;
-        line-height: 1em;
+        line-height: 1.2em;
     }
 
     /* contact */
 
     .contact {
         background: url('../img/contact.png') no-repeat; 
-          -webkit-background-size: 220px 168px; /* pour Chrome et Safari */
-          -moz-background-size: 220px 168px; /* pour Firefox */
-          -o-background-size: 220px 168px; /* pour Opera */
-          background-size: 220px 168px; /* version standardisée */
+          -webkit-background-size: 220px 220px; /* pour Chrome et Safari */
+          -moz-background-size: 220px 220px; /* pour Firefox */
+          -o-background-size: 220px 220px; /* pour Opera */
+          background-size: 220px 220px; /* version standardisée */
         width: 152px; 
-        height: 156px;
+        height: 220px;
         line-height: 0.8em;
         padding:0;
         margin: auto;
-        top: 40%;
+        top: 54%;
         bottom:0; 
         color:white;
-        padding:1em 1em 0.5em 0.5em;
+        padding:0.9em 0.9em 0em 0.5em;
         /*border-bottom: 60px solid transparent;
         border-right: 60px solid #009EE0;*/
     }
@@ -203,7 +189,7 @@ body {
     ul.nom {
         font-family: 'Akkurat';
         font-size: 12px;
-        padding-bottom: 2em;
+        padding-bottom: 1.3em;
     }
 
     ul.adresse {
@@ -211,7 +197,7 @@ body {
         font-size: 12px;        
     }
 
-    strong {
+    ul.adresse strong {
        font-family: 'Akkurat_Bold'; 
     }
 
@@ -225,7 +211,8 @@ body {
 
     ul.groupe {
         font-family: 'Akkurat'; 
-        font-size: 12px;    	
+        font-size: 12px;  
+        line-height: 1.2em;  	
     }
 
     /* images & sons */
@@ -247,7 +234,7 @@ body {
     }
 
     p.info-video {
-        font-family: 'Akkurat_Italic'; 
+        font-family: 'Akkurat_Bold_Italic'; 
         font-size: 12px;
         padding-bottom:0;
     }
@@ -278,7 +265,7 @@ body {
 
     .calendrier h2 {
     	font-family: 'Akkurat_Bold'; 
-    	font-size: 14px;
+    	font-size: 16px;
         padding-top:3em;
     }
 

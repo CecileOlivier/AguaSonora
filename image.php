@@ -15,7 +15,7 @@
 	<body>
 
 			<div class="full-picture">
-				<img src="img/slider/select-slide-1.png" alt="" title="" height="100%"/>
+				<img src="img/slider/select-slide-2.png" alt="" title="" height="100%"/>
 			</div>
 
 			<div id="images-sons" class="images-sons">
@@ -87,7 +87,7 @@
 					</li>
 				</ul>	
 
-				<p class="retour"><a href="index.html#images-sons">[&#10132 RETOUR]</a></p>
+				<p class="retour"><a href="index.php#images-sons">[&#10132 RETOUR]</a></p>
 
 			</div>
 

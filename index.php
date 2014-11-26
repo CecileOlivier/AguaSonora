@@ -67,12 +67,12 @@ require_once('init.php');
 				<p>_ _ _ </p>
 
 				<?php
-				$nb_date = $config['nb_date_future'];
+				/*$nb_date = $config['nb_date_future'];
 				$dates = get_last_date($nb_date);
 				foreach($dates as $date) {
 					echo '<p class="date">'.$date['date'].'</p>'
 						.'<p class="lieu">'.$date['heure'].' '.$date['adresse'].' - '.$date['ville'].' ('.$date['departement'].')</p>';
-				}
+				}*/
 				?>
 
 				<p class="date">14 DÉCEMBRE 2014</p>
@@ -131,7 +131,7 @@ require_once('init.php');
 					foreach($musics as $music) {
 						echo '<li><div class="track">'
 							.'<span class="controls" id="playToggle"></span>'
-							.'<span class="title">'.$music['nom'].'</span>'
+							.'<span class="title"> '.$music['nom'].'</span>'
 							.'</div>'
 							.'<audio>'
 							.'<source src="audio/'.$music['nom'].'" type="audio/mp3" />
