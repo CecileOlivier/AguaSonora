@@ -66,12 +66,12 @@ require_once('init.php');
 					$new_date = insert_date($jour, $heure, $adresse, $ville, $departement);
 					if($new_date) {
 					    echo '<p class="success">La nouvelle date a été ajoutée avec succès dans le calendrier.</p>'.PHP_EOL;
-					    echo '<a href="index.php"><button class="btn-style">Retour</button></a>'.PHP_EOL;
+					    echo '<a href="index.php"><button class="btn-style">↩ Retour</button></a>'.PHP_EOL;
 					    $affichage_formulaire = false;
 					}
 					else {
 					    echo '<p class="error">Il y a eu une erreur dans l’insertion, veuillez réessayer.</p>'.PHP_EOL;
-					    echo '<a href="index.php"><button class="btn-style">Retour</button></a>'.PHP_EOL;
+					    echo '<a href="index.php"><button class="btn-style">↩ Retour</button></a>'.PHP_EOL;
 					}
 				} 
 				else {

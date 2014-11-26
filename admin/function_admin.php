@@ -175,3 +175,15 @@ function get_all_date(){
     	));
     return $ok;
  }
+
+/**
+ * Récupère une date à partir de son id
+ * @param int $id l’identifiant de la date
+ * @return array|false un tableau représentant la date, contenant les clés id, jour,
+ * heure, adresse, ville, département
+ */
+function get_date($id) {
+    global $connexion;
+    $date = $connexion->query('SELECT id, date, heure, adresse, ville, departement FROM calendrier WHERE id = '.$connexion->quote($id))->fetch();
+    return $date;
+}

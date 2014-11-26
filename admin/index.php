@@ -41,8 +41,8 @@ require_once('init.php');
 			    	.'<td>'.$date['adresse'].'</td>'.PHP_EOL
 			    	.'<td>'.$date['ville'].'</td>'.PHP_EOL
 					.'<td>('.$date['departement'].')</td>'.PHP_EOL
-			    	.'<td><a href="update.php?id='.$date['id'].'"><input type="button" class="btn-style" name="update" value="&#10000" title="Modifier"/></a>'
-			    	.'<a href="delete.php?id='.$date['id'].'"><input type="button" class="btn-style" name="delete" value="&#10007"title="Supprimer"/></a></td>'.PHP_EOL
+			    	.'<td><a href="update_date.php?id='.$date['id'].'"><input type="button" class="btn-style" name="update" value="&#10000" title="Modifier"/></a>'
+			    	.'<a href="delete_date.php?id='.$date['id'].'"><input type="button" class="btn-style" name="delete" value="&#10007"title="Supprimer"/></a></td>'.PHP_EOL
 			    	.'</tr>'.PHP_EOL;
 			}
 			echo '</table>';
