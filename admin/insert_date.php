@@ -23,7 +23,33 @@ require_once('init.php');
 		<div class="form_align">
 
 		<?php
+		function form_valid($jour, $heure, $adresse, $ville, $departement) {
 
+                $erreurs = [];
+
+                if(empty($jour) || empty($heure) || empty($adresse) || empty($ville) || empty($departement)){
+                    $erreurs[] = 'tous les champs sont requis';
+                }
+
+                if(mb_strlen($jour, 'utf8') > 100) {
+                    $erreurs[] = 'le titre ne peut pas faire plus de 100 caractères';
+                }
+
+                if(mb_strlen($adresse, 'utf8') > 100) {
+                    $erreurs[] = 'l’auteur ne peut pas faire plus de 100 caractères';
+                }
+
+                if(mb_strlen($ville, 'utf8') < 5 && !empty($description)) {
+                    $erreurs[] = 'le texte doit faire plus de 5 caractères';
+                }
+
+                if(count($erreurs)) {
+                    return implode(', ', $erreurs);
+                }
+
+                return true;
+
+            }
 
 		// initialisation des variables qui pré-rempliront le formulaire
 		$jour = $heure = $adresse = $ville = $departement = '';
@@ -35,17 +61,22 @@ require_once('init.php');
 				$adresse = htmlspecialchars($_POST['adresse']);
 				$ville = htmlspecialchars($_POST['ville']);
 				$departement = htmlspecialchars($_POST['departement']);	
-				$id;
-				$new_date = insert_date($jour, $heure, $adresse, $ville, $departement);
+				$form_valid = form_valid($jour, $heure, $adresse, $ville, $departement);
+                if($form_valid === true) {
+					$new_date = insert_date($jour, $heure, $adresse, $ville, $departement);
 					if($new_date) {
-					    echo '<p class="success">La news a été ajoutée avec succès.</p>'.PHP_EOL;
-					    echo '<a href="index.php"><button class="btn-style">Retour</button></a>'.PHP_EOL
-					     $affichage_formulaire = false;
+					    echo '<p class="success">La nouvelle date a été ajoutée avec succès dans le calendrier.</p>'.PHP_EOL;
+					    echo '<a href="index.php"><button class="btn-style">Retour</button></a>'.PHP_EOL;
+					    $affichage_formulaire = false;
 					}
 					else {
 					    echo '<p class="error">Il y a eu une erreur dans l’insertion, veuillez réessayer.</p>'.PHP_EOL;
 					    echo '<a href="index.php"><button class="btn-style">Retour</button></a>'.PHP_EOL;
 					}
+				} 
+				else {
+                    echo '<p class="error">Le formulaire est invalide : '.$form_valid.'.</p>'.PHP_EOL;
+                }
 		}
 
 		// on affiche le formulaire, sauf si $affichage_formulaire est à false
