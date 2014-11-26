@@ -31,7 +31,7 @@ body {
     font-family: 'Akkurat_Bold';
     src: url('../font/AKKURATB.ttf');
     font-weight: bold;
-    font-style: normal;
+    font-style: bold;
 }
 
 @font-face {
@@ -105,21 +105,31 @@ body {
         list-style-type: none;
     }
 
-    ul.menu a {
+    .menu a {
         font-family: 'Akkurat_Bold'; 
         font-size: 16px;
         text-decoration:none;
         color:white;
     }
 
-    ul.menu a:hover {
+    .menu a:visited {
+        font-family: 'Akkurat_Bold'; 
+        font-size: 24px;   
+    }
+
+    .menu a:hover {
         font-family: 'Akkurat_Bold'; 
         font-size: 24px;
     }
 
-    ul.menu a:focus {
+    .menu a:active {
         font-family: 'Akkurat_Bold'; 
         font-size: 24px;   
+    }
+
+    .active {
+        font-family: 'Akkurat_Bold'; 
+        font-size: 24px;       
     }
 
     /* commun */
@@ -128,7 +138,7 @@ body {
         display:none;
     }
 
-    .who, .calendrier, .contact {
+    .who, .calendrier {
         background-color: #009EE0;
         opacity:0.8;
         color:#FFFFFF;
@@ -158,13 +168,20 @@ body {
     /* contact */
 
     .contact {
+        background: url('../img/contact.png') no-repeat; 
+          -webkit-background-size: 220px 168px; /* pour Chrome et Safari */
+          -moz-background-size: 220px 168px; /* pour Firefox */
+          -o-background-size: 220px 168px; /* pour Opera */
+          background-size: 220px 168px; /* version standardisée */
         width: 152px; 
         height: 156px;
         line-height: 0.8em;
         padding:0;
         margin: auto;
-        top: 0;
+        top: 40%;
         bottom:0; 
+        color:white;
+        padding:1em 1em 0.5em 0.5em;
         /*border-bottom: 60px solid transparent;
         border-right: 60px solid #009EE0;*/
     }
@@ -258,19 +275,26 @@ body {
 
     .calendrier h2 {
     	font-family: 'Akkurat_Bold'; 
-    	font-size: 12px;
+    	font-size: 14px;
+        padding-top:3em;
     }
 
     p.date {
         font-family: 'Akkurat_Bold'; 
         font-size: 14px;
-        border-bottom: 1px dashed white;
-        padding-bottom:0;
+        padding-bottom:0.2em;
+        padding-top: 0.5em;
     }
 
     p.lieu {
         font-family: 'Akkurat_Italic'; 
         font-size: 11px;
+        padding-bottom: 0.5em;
+        border-bottom: 1px dashed white;
+    }
+
+    p.passe {
+        color : #EFF8FD;
     }
 
     /* page image */
@@ -289,6 +313,20 @@ body {
 
     .full-picture img {
         float:right;
+    }
+
+    p.retour {
+        font-family: 'Akkurat_Bold';
+        font-weight: bold;
+        position:absolute;
+        right:6px;
+        bottom:1px;
+    }
+
+    ul.test li {
+        float:left;
+        width:63px;
+        height:63px;
     }
 }
 
