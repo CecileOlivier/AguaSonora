@@ -1,0 +1,80 @@
+<?php 
+require_once('init.php');
+?>
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+	  	<meta charset="UTF-8">
+		<title>Agua Sonora : Insertion d'une date</title>
+		<link href="../css/reset.css" rel="stylesheet">
+		<link href="../css/admin.css" rel="stylesheet">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+	</head>
+	<body>
+		<header>
+			<h1>Espace d'administration >> <small>Insertion d'une date </small></h1> 
+			<a href="../session.php?logout">
+				<input type="button" name="btn" class="btn-style deco" value="Déconnexion" title="Déconnexion"/>
+			</a>
+		</header>
+
+		<main>
+
+		<div class="form_align">
+
+		<?php
+
+
+		// initialisation des variables qui pré-rempliront le formulaire
+		$jour = $heure = $adresse = $ville = $departement = '';
+		$affichage_formulaire = true;
+
+		if(isset($_POST['date'], $_POST['heure'], $_POST['adresse'], $_POST['ville'], $_POST['departement'])){
+				$jour = htmlspecialchars($_POST['date']);
+				$heure = htmlspecialchars($_POST['heure']);
+				$adresse = htmlspecialchars($_POST['adresse']);
+				$ville = htmlspecialchars($_POST['ville']);
+				$departement = htmlspecialchars($_POST['departement']);	
+				$id;
+				$new_date = insert_date($jour, $heure, $adresse, $ville, $departement);
+					if($new_date) {
+					    echo '<p class="success">La news a été ajoutée avec succès.</p>'.PHP_EOL;
+					    echo '<a href="index.php"><button class="btn-style">Retour</button></a>'.PHP_EOL
+					     $affichage_formulaire = false;
+					}
+					else {
+					    echo '<p class="error">Il y a eu une erreur dans l’insertion, veuillez réessayer.</p>'.PHP_EOL;
+					    echo '<a href="index.php"><button class="btn-style">Retour</button></a>'.PHP_EOL;
+					}
+		}
+
+		// on affiche le formulaire, sauf si $affichage_formulaire est à false
+		if($affichage_formulaire) {
+
+		?>
+
+			<form id="insert" method="post" action="">
+			    <p><label for="date"># Date</label></p>
+                <p><input type="text" id="date" name="date" placeholder="" value=""/></p>
+                <p><label for="heure"># Heure</label></p>
+                <p><input type="text" id="heure" name="heure" placeholder="" value=""/></p>
+			    <p><label for="adresse"># Adresse</label></p>
+                <p><input type="text" id="adresse" name="adresse" placeholder="" value=""/></p>
+                <p><label for="ville"># Ville</label></p>
+                <p><input type="text" id="ville" name="ville" placeholder="" value=""/></p>
+                <p><label for="departement"># Département</label></p>
+                <p><input type="text" id="departement" name="departement" placeholder="" value=""/></p>
+                <p><input type="submit" class="btn-style" name="Ajouter" value="Ajouter"></p>
+            </form>
+
+        <?php
+
+    	}
+
+    	?>
+
+        </div>
+
+		</main>
+	</body>
+</html>
