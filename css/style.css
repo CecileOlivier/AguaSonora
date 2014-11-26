@@ -105,14 +105,17 @@ body {
         list-style-type: none;
     }
 
-    .menu a {
+    ul.menu li {
         font-family: 'Akkurat_Bold'; 
         font-size: 16px;
-        text-decoration:none;
-        color:white;
     }
 
-    .menu a:visited {
+    .menu a {
+        color:white;
+        text-decoration:none;
+    }
+
+    /*.menu a:visited {
         font-family: 'Akkurat_Bold'; 
         font-size: 24px;   
     }
@@ -125,9 +128,9 @@ body {
     .menu a:active {
         font-family: 'Akkurat_Bold'; 
         font-size: 24px;   
-    }
+    }*/
 
-    .active {
+    ul.menu li.active {
         font-family: 'Akkurat_Bold'; 
         font-size: 24px;       
     }
