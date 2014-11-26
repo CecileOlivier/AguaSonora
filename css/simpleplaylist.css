@@ -29,7 +29,7 @@ span.controls {
 }
 
 span.controls:hover {
-  background-image: url('images/playing.png');
+  background-image: url('playing.png');
 }
 
 span.playing {
@@ -37,12 +37,14 @@ span.playing {
 }
 
 span.playing:hover {
-  background-image: url('images/stoped.png') !important;
+  background-image: url('stoped.png') !important;
 }
 
 span.title {
   display: inline-block;
   width: 245px;
+  font-family: 'Akkurat_Italic'; 
+  font-size: 11px;
 }
 
 span.minus {
