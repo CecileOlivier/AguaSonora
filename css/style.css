@@ -76,33 +76,37 @@ body {
     }
 
     img.logo {
+        float:left;
         position:absolute;
         padding:0;
         margin: auto;
         top: 0; 
-        left: 0; 
-        bottom: 0; 
-        right: 12%;
+        bottom: 0;
     }
 
     /* menu navigation */
 
     nav {
     	position:absolute;
-    	width: 10em; 
+    	width: 23em;
     	height:8em; 
         padding:0;
         margin: auto;
         top: 0;
         bottom:0; 
-        left: 55%; 
-        line-height: 2em;
+        left:0;
+        right:0;
+       /* left: 55%; */
+        line-height: 1.7em;
         text-transform: uppercase;
 
     }
 
     ul.menu {
         list-style-type: none;
+        position:absolute;
+        left:62%;
+        top:6%;
     }
 
     ul.menu li {

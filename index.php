@@ -17,9 +17,8 @@ require_once('init.php');
 		<script src="js/jquery.simpleplaylist.js"></script><!-- plugin simple playlist -->
 	</head>
 	<body>
-
-		<img src="img/logo-arbre.png" alt="logo" title="logo" class="logo"/>
 		<nav>
+			<img src="img/logo-arbre.png" alt="logo" title="logo" class="logo"/>
 			<ul class="menu">
 				<li><a href="#who">who we are</a></li>
 				<li><a href="#calendrier">calendrier</a></li>
