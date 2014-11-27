@@ -8,12 +8,12 @@ require_once('init.php');
 		<title>Agua Sonora</title>
 		<link href="css/reset.css" rel="stylesheet">
 		<link href="css/style.css" rel="stylesheet">
-		<link href="css/bxslider/jquery.bxslider.css" rel="stylesheet"><!-- plugin bxslider -->
+		<!--<link href="css/bxslider/jquery.bxslider.css" rel="stylesheet">plugin bxslider -->
 		<link href="css/simpleplaylist.css" rel="stylesheet"><!-- plugin simple playlist -->
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 		<script src="js/main.js"></script>
-		<script src="js/bxslider/jquery.bxslider.min.js"></script><!-- plugin bxslider -->
+		<!--<script src="js/bxslider/jquery.bxslider.min.js"></script>plugin bxslider -->
 		<script src="js/jquery.simpleplaylist.js"></script><!-- plugin simple playlist -->
 	</head>
 	<body>
@@ -97,16 +97,49 @@ require_once('init.php');
 
 			<div id="images-sons" class="images-sons">
 				<h1>PHOTOS</h1>
-				<div class="slide">
-					<ul class="bxslider">
+				    <div class="gallery">
+			        <?php
+			        $nb_pages = get_page_count();
+
+			        // on récupère le numéro de page souhaité
+			        if(isset($_GET['page']) && is_numeric($_GET['page'])) {
+			            if($_GET['page'] < 1) {
+			                $page = 0;
+			            } elseif($_GET['page'] > $nb_pages) {
+			                $page = $nb_pages - 1;
+			            } else {
+			                $page = $_GET['page'] - 1;
+			            }
+			        } else {
+			            $page = 0;
+			        }
+
+			        $images = get_pictures_from_page($page);
+
+			        // pour chaque image de la liste d’images,
+			        foreach($images as $image) {
+			            // afficher le HTML correspondant à une image
+			            echo '<div class="image">
+			                    <a href="image.php?id='.$image['id'].'&amp;refpage='.($page+1).'"><img
+			                        src="img/slider/'.$image['nom'].'" alt="Image '.$image['nom'].'"
+			                        width="63"/></a>
+			                </div>'.PHP_EOL;
+			        }
+			        ?>
+			    </div>
+			    <?= menu_pagination($page + 1, $nb_pages); ?>
+
+
+				<!--<div class="slide">
+					<ul class="bxslider">-->
 					<?php
-					$pictures = get_pictures();
+					/*$pictures = get_pictures();
 					foreach($pictures as $picture) {
 						echo '<li><a href="image.php?id='.$picture['id'].'" target="_blank"><img src="img/slider/'.$picture['nom'].'" alt="" title="" width="63px"/></a></li>';
-					}
+					}*/
 					?>
-					</ul>
-				</div>
+					<!--</ul>
+				</div>-->
 
 				<h1>VIDÉOS</h1>
 
@@ -128,7 +161,7 @@ require_once('init.php');
 					foreach($musics as $music) {
 						echo '<li><div class="track">'
 							.'<span class="controls" id="playToggle"></span>'
-							.'<span class="title"> '.$music['nom'].'</span>'
+							.'<span class="title"> ' .$music['nom'].'</span>'
 							.'</div>'
 							.'<audio>'
 							.'<source src="audio/'.$music['nom'].'" type="audio/mp3" />
