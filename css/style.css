@@ -62,6 +62,84 @@ body {
 }
 
 /* ******************************** */
+/*    Mobile First                  */
+/* ******************************** */
+
+.display {
+    display:none;
+}
+
+.contact {
+    font-family: 'Akkurat'; 
+    font-size: 1em;   
+    padding :1%; 
+}
+
+li strong {
+    color:#009EE0;
+}
+
+img.image-mobile {
+    position: absolute;
+    width:100%;
+    top:20%;
+}
+
+div.tabs-hide {
+    display:none;
+}
+
+.who, .calendrier, .images-sons {
+    position: absolute;
+    top:60%;
+}
+
+ul.menu {
+    position: absolute;
+    top:50%;
+    width:98%;
+    list-style-type: none;
+    text-transform: uppercase;
+    text-align:right;
+    line-height: 2em;
+    padding:1%;
+    }
+
+ul.menu li {
+    font-family: 'Akkurat_Bold'; 
+    font-size: 1.5em;
+    right:0;
+    }
+
+.menu a {
+    color:#009EE0;
+    text-decoration:none;
+    text-align: right;
+    }
+
+/* who we are*/
+
+.who h1 {
+    font-family: 'Akkurat_Bold'; 
+    font-size: 1.6em;
+    line-height: 2em;
+}
+
+ul.groupe {
+    font-family: 'Akkurat'; 
+    font-size: 1.2em;  
+    line-height: 1em;     
+}
+
+p {
+    font-family: 'Akkurat'; 
+    font-size: 1.2em;
+    padding-bottom:1em;
+    line-height: 1em;
+    text-align: justify;
+}
+
+/* ******************************** */
 /*    Tablette portrait : 768px     */
 /* ******************************** */
 
@@ -110,13 +188,17 @@ body {
     ul.menu {
         list-style-type: none;
         position:absolute;
+        width:auto;
         left:62%;
         top:6%;
+        text-align: left;
+        padding:0;
+        line-height: 1.7em;
     }
 
     ul.menu li {
         font-family: 'Akkurat_Bold'; 
-        font-size: 16px;
+        font-size: 0.8em; /*16px*/
     }
 
     .menu a {
@@ -126,7 +208,7 @@ body {
 
     ul.menu li.active {
         font-family: 'Akkurat_Bold'; 
-        font-size: 24px;       
+        font-size: 1.2em;     /*24px*/  
     }
 
     /* commun */
@@ -141,7 +223,7 @@ body {
     }
 
     .who, .calendrier, .images-sons {
-        width:300px;
+        width:15em; /*300px*/
     }
 
     .who, .calendrier, .contact {
@@ -156,7 +238,7 @@ body {
 
     p {
         font-family: 'Akkurat'; 
-        font-size: 12px;
+        font-size: 0.6em; /*12px*/
         padding-bottom:1em;
         line-height: 1.2em;
     }
@@ -169,8 +251,8 @@ body {
           -moz-background-size: 220px 220px; /* pour Firefox */
           -o-background-size: 220px 220px; /* pour Opera */
           background-size: 220px 220px; /* version standardisée */
-        width: 152px; 
-        height: 220px;
+        width: 7.6em; /*152px*/ 
+        height: 11em; /*220px*/
         line-height: 0.8em;
         padding:0;
         margin: auto;
@@ -182,43 +264,33 @@ body {
         border-right: 60px solid #009EE0;*/
     }
 
-    /*.contact:after {
-        content:'';
-        width:1px;
-        height:100px;
-        border:1px solid #069;
-        border-color: transparent #069 transparent #069;
-        border-width:100px;
-        position: absolute;
-        left:-168px;
-    }*/
-
     ul.nom {
         font-family: 'Akkurat';
-        font-size: 12px;
+        font-size: 0.6em; /*12px*/
         padding-bottom: 1.3em;
     }
 
     ul.adresse {
         font-family: 'Akkurat';
-        font-size: 12px;        
+        font-size: 0.6em;        
     }
 
     ul.adresse strong {
        font-family: 'Akkurat_Bold'; 
+       color: white;
     }
 
     /* who we are*/
 
     .who h1 {
         font-family: 'Akkurat_Bold'; 
-        font-size: 16px;
-        padding-top:1em;
+        font-size: 0.8em; /*16px*/
+        padding-top:0.6em;
     }
 
     ul.groupe {
         font-family: 'Akkurat'; 
-        font-size: 12px;  
+        font-size: 0.6em; /*12px*/  
         line-height: 1.2em;  	
     }
 
@@ -226,6 +298,7 @@ body {
 
     .images-sons {
         position:absolute;
+        top:0;
         left:72%;
         background-color:#EFF8FD;
         color: #009EE0;
@@ -235,39 +308,57 @@ body {
 
     .images-sons h1 {
         font-family: 'Akkurat_Bold'; 
-        font-size: 14px;
+        font-size: 0.7em; /*14px*/
         border-bottom: 1px dashed #009EE0;
         padding-top:1em;
     }
 
     p.info-video {
         font-family: 'Akkurat_Bold_Italic'; 
-        font-size: 12px;
+        font-size: 0.6em; 
         padding-bottom:0;
+        line-height: 0.8em;
     }
+
+    /*p.info-video::before {
+        content : 'ˍˍˍ';
+        position:absolute;
+        margin-top:-1.2em;
+    }*/
 
     p.player {
         font-family: 'Akkurat_Italic'; 
-        font-size: 11px;
+        font-size: 0.550em; /*11px*/
+    }
+
+    span.title {
+        padding-left:0.5em;
     }
 
     .images-sons a {
         font-family: 'Akkurat_Light'; 
-        font-size: 11px;
+        font-size: 0.550em;
         text-decoration: none;
         padding-bottom: 0;
         color:#009EE0;
     }
 
-    .slide {
-        /*margin-top: 1.4em;*/
+    .gallery, .listing-video, ul.playlist {
+        padding-top:0.5em;
+        padding-bottom:0.5em;
+    }
+
+    .slide a{
+        float:left;
+        padding-left:0.8em;
+        padding-bottom: 0.3em;
     }
 
     /* calendrier */
 
     .calendrier h1 {
         font-family: 'Akkurat_Bold'; 
-        font-size: 20px;
+        font-size: 1em;
         margin-bottom: 1em;
     }
 
@@ -280,7 +371,7 @@ body {
 
     .calendrier h2 {
     	font-family: 'Akkurat_Bold'; 
-    	font-size: 16px;
+    	font-size: 0.8em;
         padding-top:3em;
         margin-bottom: 0.2em;
     }
@@ -294,7 +385,7 @@ body {
 
     p.date {
         font-family: 'Akkurat_Bold'; 
-        font-size: 14px;
+        font-size: 0.7em;
         padding-bottom:0.1em;
         padding-top: 0.5em;
     }
@@ -335,12 +426,6 @@ body {
         right:6px;
         bottom:1px;
     }
-
-    ul.test li {
-        float:left;
-        width:63px;
-        height:63px;
-    }
 }
 
 
@@ -362,7 +447,7 @@ body {
           background-size: cover; /* version standardisée */
     }
 
-    img.logo {
+    /*img.logo {
         position:absolute;
         padding:0;
         margin: auto;
@@ -370,5 +455,5 @@ body {
         left: 0; 
         bottom: 0; 
         right: 0;
-    }
+    }*/
 }
