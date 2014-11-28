@@ -72,6 +72,17 @@ function get_pictures_from_page($page) {
 }
 
 /**
+ * Récupère une image à partir de son id
+ * @param int $id l’identifiant de l'image
+ * @return array|false un tableau représentant l'image, contenant les clés id et le nom de fichier
+ */
+function get_pictures_by($id) {
+    global $connexion;
+    $pictures = $connexion->query('SELECT id, nom FROM image WHERE id = '.$connexion->quote($id))->fetch();
+    return $pictures;
+}
+
+/**
  * Crée un menu HTML permettant de naviguer entre les pages
  * @param int $page le numéro de la page courante
  * @param int $page_count le nombre de pages
