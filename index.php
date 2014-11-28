@@ -17,19 +17,21 @@ require_once('init.php');
 		<script src="js/jquery.simpleplaylist.js"></script><!-- plugin simple playlist -->
 	</head>
 	<body>
+
+	<div id="screen" class="">
 		<nav>
 			<img src="img/logo-arbre.png" alt="logo" title="logo" class="logo"/>
 			<ul class="menu">
-				<li><a href="#who">who we are</a></li>
-				<li><a href="#calendrier">calendrier</a></li>
-				<li><a href="#images-sons">images / sons</a></li>
-				<li><a href="#contact">contact</a></li>
+				<li><a href="#who" class="lienvisible">who we are</a></li>
+				<li><a href="#calendrier" class="lienvisible">calendrier</a></li>
+				<li><a href="#images-sons" class="lienvisible">images / sons</a></li>
+				<li><a href="#contact" class="hide">contact</a></li>
 			</ul>
 		</nav>
 
 		<div id="content">
 
-			<div id="who" class="who">
+			<div id="who" class="who hide">
 				<p>Tels des nénuphars, au milieu de l’eau, cet orchestre
 				nous embarque dans son délire « aqua’zic ».
 				Voguant, se déplaçant au fil de l’eau, ils diffusent
@@ -61,7 +63,7 @@ require_once('init.php');
 				</ul>
 			</div>
 
-			<div id="calendrier" class="calendrier">
+			<div id="calendrier" class="calendrier hide">
 				<h1>Retrouvez-nous !</h1>
 
 				<?php
@@ -95,7 +97,7 @@ require_once('init.php');
 
 			</div>
 
-			<div id="images-sons" class="images-sons">
+			<div id="images-sons" class="images-sons hide">
 				<h1>PHOTOS</h1>
 				    <div class="gallery">
 			        <?php
@@ -119,15 +121,15 @@ require_once('init.php');
 			        // pour chaque image de la liste d’images,
 			        foreach($images as $image) {
 			            // afficher le HTML correspondant à une image
-			            echo '<div class="image">
+			            echo '<div class="slide">
 			                    <a href="image.php?id='.$image['id'].'&amp;refpage='.($page+1).'"><img
 			                        src="img/slider/'.$image['nom'].'" alt="Image '.$image['nom'].'"
-			                        width="63"/></a>
+			                        width="63" height="63"/></a>
 			                </div>'.PHP_EOL;
 			        }
 			        ?>
 			    </div>
-			    <?= menu_pagination($page + 1, $nb_pages); ?>
+			    <!--<?= menu_pagination($page + 1, $nb_pages); ?>-->
 
 
 				<!--<div class="slide">
@@ -143,14 +145,18 @@ require_once('init.php');
 
 				<h1>VIDÉOS</h1>
 
-				<p class="info-video">Lieu, date de la vidéo</p>
-				<a href="http://www.xxxxxxxxxxxxx..." target="_blank">http://www.xxxxxxxxxxxxx...</a>
+				<div class="listing-video">
 
 				<p class="info-video">Lieu, date de la vidéo</p>
 				<a href="http://www.xxxxxxxxxxxxx..." target="_blank">http://www.xxxxxxxxxxxxx...</a>
 
 				<p class="info-video">Lieu, date de la vidéo</p>
 				<a href="http://www.xxxxxxxxxxxxx..." target="_blank">http://www.xxxxxxxxxxxxx...</a>
+
+				<p class="info-video">Lieu, date de la vidéo</p>
+				<a href="http://www.xxxxxxxxxxxxx..." target="_blank">http://www.xxxxxxxxxxxxx...</a>
+
+				</div>
 
 				<h1>MUSIQUE</h1>
 
@@ -171,17 +177,8 @@ require_once('init.php');
 					}
 					?>
 
-					<li>
-						<div class="track">
-						<span class="controls" id="playToggle"></span>
-						<span class="title">Titre morceau</span>
-						</div>
-						<audio>
-						<source src="audio/test.mp3" type="audio/mp3" />
-						Your browser does not support the <code>audio</code> element.
-						</audio>
-					</li>
-					<li>
+			
+					<!--<li>
 						<div class="track">
 						<span class="controls" id="playToggle"></span>
 						<span class="title">Titre morceau</span>
@@ -202,7 +199,7 @@ require_once('init.php');
 						<source src="audio/top90(radio).ogg" type="audio/ogg" />
 						Your browser does not support the <code>audio</code> element.
 						</audio>
-					</li>
+					</li>-->
 				</ul>	
 
 			</div>
@@ -222,7 +219,30 @@ require_once('init.php');
 				</ul>
 			</div>
 
-		</div>
+		</div><!-- fin de .content -->
+
+		</div><!--fin de .screen -->
+
+		<div id="mobile" class="display">
+
+			<!--<div id="contact" class="contact">
+				<ul class="nom">
+					<li>Michel MAILLARD</li>
+					<li>Tel. : 06 75 25 23 58</li>
+					<li>contact@agua-sonora.fr</li>
+				</ul>
+				<ul class="adresse">
+					<li>-</li>
+					<li><strong>Agua Sonora</strong></li>
+					<li>Blockhaus DY10</li>
+					<li>5 bis, Bd Léon Bureau</li>
+					<li>44200 - Nantes</li>
+				</ul>
+			</div>-->
+
+			<img src="img/background.png" alt="" title="Agua-Sonora" class="image-mobile"/>
+
+		</div><!-- fin de mobile -->
 
 		<script>
 			$(document).ready(function(){

@@ -1,3 +1,6 @@
+<?php 
+require_once('init.php');
+?>
 <!DOCTYPE html>
 <html lang="fr">
 	<head>
@@ -15,29 +18,55 @@
 	<body>
 
 			<div class="full-picture">
+
+				<?php
+				if(isset($_GET['id'])) {
+					$pictures = get_pictures_by($_GET['id']);
+    				if($pictures) {
+    					echo '<img src="img/slider/'.$pictures['nom'].'" alt="'.$pictures['nom'].'" height="100%"/>';
+    				}
+    				else {
+        				echo 'Aucune valeur trouvée';
+    				}
+				}
+				?>
 				<img src="img/slider/select-slide-2.png" alt="" title="" height="100%"/>
 			</div>
 
 			<div id="images-sons" class="images-sons">
 				<h1>PHOTOS</h1>
-				<div class="slide">
-					<ul class="bxslider">
-						<li><img src="img/slider/slide1.jpg" alt="" title="" width="63px"/></li>
-						<li><img src="img/slider/slide2.jpg" alt="" title="" width="63px"/></li>
-						<li><img src="img/slider/slide1.jpg" alt="" title="" width="63px"/></li>
-						<li><img src="img/slider/slide2.jpg" alt="" title="" width="63px"/></li>
-						<li><img src="img/slider/slide1.jpg" alt="" title="" width="63px"/></li>
-						<li><img src="img/slider/slide2.jpg" alt="" title="" width="63px"/></li>
-						<li><img src="img/slider/slide1.jpg" alt="" title="" width="63px"/></li>
-						<li><img src="img/slider/slide2.jpg" alt="" title="" width="63px"/></li>
-						<li><img src="img/slider/slide1.jpg" alt="" title="" width="63px"/></li>
-						<li><img src="img/slider/slide2.jpg" alt="" title="" width="63px"/></li>
-						<li><img src="img/slider/slide1.jpg" alt="" title="" width="63px"/></li>
-						<li><img src="img/slider/slide2.jpg" alt="" title="" width="63px"/></li>
-						<li><img src="img/slider/slide1.jpg" alt="" title="" width="63px"/></li>
-						<li><img src="img/slider/slide2.jpg" alt="" title="" width="63px"/></li>
-					</ul>
-				</div>
+
+				    <div class="gallery">
+			        <?php
+			        $nb_pages = get_page_count();
+
+			        // on récupère le numéro de page souhaité
+			        if(isset($_GET['page']) && is_numeric($_GET['page'])) {
+			            if($_GET['page'] < 1) {
+			                $page = 0;
+			            } elseif($_GET['page'] > $nb_pages) {
+			                $page = $nb_pages - 1;
+			            } else {
+			                $page = $_GET['page'] - 1;
+			            }
+			        } else {
+			            $page = 0;
+			        }
+
+			        $images = get_pictures_from_page($page);
+
+			        // pour chaque image de la liste d’images,
+			        foreach($images as $image) {
+			            // afficher le HTML correspondant à une image
+			            echo '<div class="slide">
+			                    <a href="image.php?id='.$image['id'].'&amp;refpage='.($page+1).'"><img
+			                        src="img/slider/'.$image['nom'].'" alt="Image '.$image['nom'].'"
+			                        width="63" height="63"/></a>
+			                </div>'.PHP_EOL;
+			        }
+			        ?>
+			    </div>
+			    <?= menu_pagination($page + 1, $nb_pages); ?>
 
 				<h1>VIDÉOS</h1>
 
