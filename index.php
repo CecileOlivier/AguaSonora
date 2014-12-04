@@ -8,12 +8,10 @@ require_once('init.php');
 		<title>Agua Sonora</title>
 		<link href="css/reset.css" rel="stylesheet">
 		<link href="css/style.css" rel="stylesheet">
-		<!--<link href="css/bxslider/jquery.bxslider.css" rel="stylesheet">plugin bxslider -->
 		<link href="css/simpleplaylist.css" rel="stylesheet"><!-- plugin simple playlist -->
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 		<script src="js/main.js"></script>
-		<!--<script src="js/bxslider/jquery.bxslider.min.js"></script>plugin bxslider -->
 		<script src="js/jquery.simpleplaylist.js"></script><!-- plugin simple playlist -->
 	</head>
 	<body>
@@ -22,10 +20,10 @@ require_once('init.php');
 		<nav>
 			<img src="img/logo-arbre.png" alt="logo" title="logo" class="logo"/>
 			<ul class="menu">
-				<li><a href="#who" class="lienvisible">who we are</a></li>
-				<li><a href="#calendrier" class="lienvisible">calendrier</a></li>
-				<li><a href="#images-sons" class="lienvisible">images / sons</a></li>
-				<li><a href="#contact" class="hide">contact</a></li>
+				<li><a href="index.php?menu=#who" class="lienvisible">who we are</a></li>
+				<li><a href="index.php?menu=#calendrier" class="lienvisible">calendrier</a></li>
+				<li><a href="index.php?menu=#images-sons" class="lienvisible">images / sons</a></li>
+				<li><a href="index.php?menu=#contact" class="hide">contact</a></li>
 			</ul>
 		</nav>
 
@@ -51,7 +49,11 @@ require_once('init.php');
 				dans les répertoires cubains. Ils ont tous étudié sur
 				l’île, chacun dans sa spécialité. Leur répertoire
 				aborde les styles du « Son » et du « Cha Cha Cha »
-				sans oublier les morceaux résolument « Salsa ».</p>
+				sans oublier les morceaux résolument « Salsa ».
+				Le groupe existe aussi dans une configuration terrestre 
+				sous le nom de <a href="http://www.orquestadelacalle.com/"
+				class="lien-accueil" target="_blank">Orquesta de la Calle</a>.
+				</p>
 
 				<h1>Musiciens :</h1>
 
@@ -60,6 +62,8 @@ require_once('init.php');
 					<li>Aurélien Bucco : Trompette</li>
 					<li>Cyrille Maillard, Tobie Koppé : Percussions</li>
 					<li>Denis Peduzzi : Guitare</li>
+					<li>Erwan Thobie  : Trombone</li>
+  					<li>Cécile Dugué : Création costumes & scénographie</li>
 				</ul>
 			</div>
 
@@ -147,14 +151,14 @@ require_once('init.php');
 
 				<div class="listing-video">
 
-				<p class="info-video">Lieu, date de la vidéo</p>
+				<p class="info-video">Clip Agua Sonora - novembre 2014</p>
+				<a href="http://vimeo.com/113073557" target="_blank">http://vimeo.com/113073557</a>
+
+				<!--<p class="info-video">Lieu, date de la vidéo</p>
 				<a href="http://www.xxxxxxxxxxxxx..." target="_blank">http://www.xxxxxxxxxxxxx...</a>
 
 				<p class="info-video">Lieu, date de la vidéo</p>
-				<a href="http://www.xxxxxxxxxxxxx..." target="_blank">http://www.xxxxxxxxxxxxx...</a>
-
-				<p class="info-video">Lieu, date de la vidéo</p>
-				<a href="http://www.xxxxxxxxxxxxx..." target="_blank">http://www.xxxxxxxxxxxxx...</a>
+				<a href="http://www.xxxxxxxxxxxxx..." target="_blank">http://www.xxxxxxxxxxxxx...</a>-->
 
 				</div>
 
@@ -240,23 +244,9 @@ require_once('init.php');
 				</ul>
 			</div>-->
 
-			<img src="img/background.png" alt="" title="Agua-Sonora" class="image-mobile"/>
+			<img src="img/background.jpg" alt="" title="Agua-Sonora" class="image-mobile"/>
 
 		</div><!-- fin de mobile -->
-
-		<script>
-			$(document).ready(function(){
-			  $('.bxslider').bxSlider(
-			  	{
-			    slideWidth: 300,
-			    minSlides: 4,
-			    maxSlides: 4,
-			    moveSlides: 3,
-			    slideMargin: 5
-			  	}
-			  	);
-			});
-		</script>
 
 		 <script>
         	$(document).ready(function() {
