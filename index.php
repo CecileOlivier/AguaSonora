@@ -9,10 +9,12 @@ require_once('init.php');
 		<link href="css/reset.css" rel="stylesheet">
 		<link href="css/style.css" rel="stylesheet">
 		<link href="css/simpleplaylist.css" rel="stylesheet"><!-- plugin simple playlist -->
+		<link href="jquery.mCustomScrollbar.css" rel="stylesheet"><!-- plugin scrollbar -->
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 		<script src="js/main.js"></script>
-		<script src="js/jquery.simpleplaylist.js"></script><!-- plugin simple playlist -->
+		<script src="js/vendor/jquery.simpleplaylist.js"></script><!-- plugin simple playlist -->
+		<script src="js/vendor/jquery.mCustomScrollbar.concat.min.js"></script><!-- plugin scrollbar -->
 	</head>
 	<body>
 
