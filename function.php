@@ -1,6 +1,17 @@
 <?php
 
 /** 
+ * Récupérer le texte de présentation
+ * @return PDOStatement avec les colonnes id, date, heure, adresse, ville, departement
+ */
+
+ function get_texte(){
+    global $connexion;
+    $texte = $connexion->query('SELECT id, texte FROM presentation');
+    return $texte;
+ }
+
+/** 
  * Récupérer les dernières dates
  * @param int $count le nombre de date à récupérer
  * @return PDOStatement avec les colonnes id, date, heure, adresse, ville, departement
@@ -38,13 +49,35 @@
 
 /** 
  * Récupérer les images
- * @return PDOStatement avec les colonnes id, date, heure, adresse, ville, departement
+ * @return PDOStatement avec les colonnes id et nom
  */
 
  function get_pictures(){
     global $connexion;
     $pictures = $connexion->query('SELECT id, nom FROM image');
     return $pictures;
+ }
+
+/** 
+ * Récupérer les liens des vidéos
+ * @return PDOStatement avec les colonnes id et lien
+ */
+
+ function get_all_video(){
+    global $connexion;
+    $video = $connexion->query('SELECT id, lien FROM video');
+    return $video;
+ }
+
+ /** 
+ * Récupérer le texte de contact
+ * @return PDOStatement avec les colonnes id et texte
+ */
+
+ function get_contact(){
+    global $connexion;
+    $contact = $connexion->query('SELECT id, texte FROM contact');
+    return $contact;
  }
 
 /**
