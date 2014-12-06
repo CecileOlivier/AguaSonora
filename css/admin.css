@@ -54,7 +54,7 @@ h1 > small {
 /*				 BLOC			    */
 /* ******************************** */
 
-.calendrier, .image, .music {
+.calendrier, .image, .music, .video, .whoweare, .contact  {
 	background-color: #EFF8FD;
 	font-family: 'Akkurat';
 	font-size: 13px;
@@ -63,27 +63,54 @@ h1 > small {
 	padding:0.2em;
 }
 
-.calendrier {
-	width: 48%;
-	height:80%;
+.whoweare {
+	width: 98%;
+	height:20%;
 	overflow: auto;
 	position: absolute;
+}
+
+.calendrier, .contact {
+	width:98%;
+	height:30%;
+	overflow: auto;
+	position: absolute;
+}
+
+.calendrier {
+	top:30%;
+}
+
+.contact {
+	top: 100%;
+}
+
+.image, .music, .video {
+	top:65%;
 }
 
 .image {
-	width:23%;
-	height:80%;
+	width:30%;
+	height:30%;
 	overflow: auto;
 	position: absolute;
-	left:49%;
+	left:0%;
 }
 
 .music {
-	width:25%;
-	height:80%;
+	width:30%;
+	height:30%;
 	overflow: auto;
 	position: absolute;
-	left:73%;
+	left:34%;
+}
+
+.video {
+	width:30%;
+	height:30%;
+	overflow: auto;
+	position: absolute;
+	left:68%;
 }
 
 table {
@@ -123,11 +150,11 @@ table td {
 	top:1em;
 }
 
-.add {
+/*.add {
 	width:98%;
 	position:absolute;
 	bottom:1em;
-}
+}*/
 
 a {
 	text-decoration:none;
