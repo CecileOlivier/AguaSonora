@@ -17,6 +17,26 @@ require_once('init.php');
 		</header>
 
 		<main>
+
+			<div class="whoweare">
+			<h2>Who we are</h2>
+			<?php
+			$texte = get_texte();
+			echo '<table class="texte">'
+				.'<tr>'
+				.'<th>Id</th>'
+				.'<th>Texte</th>'
+				.'</tr>'.PHP_EOL;
+			foreach ($texte as $text) {
+			echo '<tr>'.PHP_EOL
+				.'<td>'.$text['id'].'</td>'.PHP_EOL
+				.'<td>'.$text['texte'].'</td>'.PHP_EOL
+				.'<td><a href="update.php?id='.$text['id'].'"><input type="button" class="btn-style" name="update" value="&#10000" title="Modifier"/></a></td>'.PHP_EOL
+				.'</tr>'.PHP_EOL;
+			}
+			echo '</table>';
+			?>
+			</div>
 			
 			<div class="calendrier">
 			<h2>Calendrier</h2>
@@ -99,6 +119,50 @@ require_once('init.php');
 			echo '</table>';
 			?>
 			<a href="insert_music.php"><input type="button" name="ajouter"  class="btn-style add" value="Ajouter un son"/></a>
+			</div>
+
+			<div class="video">
+			<h2>Video</h2>
+			<?php
+			$videos = get_all_video();
+			echo '<table class="listing_video">'
+				.'<tr>'
+				.'<th>Id</th>'
+				.'<th>Lien</th>'
+				.'<th></th>'
+				.'</tr>'.PHP_EOL;
+			foreach ($videos as $video) {
+			echo '<tr>'.PHP_EOL
+				.'<td>'.$video['id'].'</td>'.PHP_EOL
+				.'<td>'.$video['lien'].'</td>'.PHP_EOL
+				.'<td><a href="update.php?id='.$video['id'].'"><input type="button" class="btn-style" name="update" value="&#10000" title="Modifier"/></a>'
+				.'<a href="delete.php?id='.$video['id'].'"><input type="button" class="btn-style" name="delete" value="&#10007"title="Supprimer"/></a></td>'.PHP_EOL
+				.'</tr>'.PHP_EOL;
+			}
+			echo '</table>';
+			?>
+			</div>
+
+			<div class="contact">
+			<h2>Contact</h2>
+			<?php
+			$contacts = get_contact();
+			echo '<table class="listing_contact">'
+				.'<tr>'
+				.'<th>Id</th>'
+				.'<th>Texte</th>'
+				.'<th></th>'
+				.'</tr>'.PHP_EOL;
+			foreach ($contacts as $contact) {
+			echo '<tr>'.PHP_EOL
+				.'<td>'.$contact['id'].'</td>'.PHP_EOL
+				.'<td>'.$contact['texte'].'</td>'.PHP_EOL
+				.'<td><a href="update.php?id='.$contact['id'].'"><input type="button" class="btn-style" name="update" value="&#10000" title="Modifier"/></a>'
+				.'<a href="delete.php?id='.$contact['id'].'"><input type="button" class="btn-style" name="delete" value="&#10007"title="Supprimer"/></a></td>'.PHP_EOL
+				.'</tr>'.PHP_EOL;
+			}
+			echo '</table>';
+			?>
 			</div>
 
 		</main>
