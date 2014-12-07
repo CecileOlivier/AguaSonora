@@ -60,12 +60,12 @@
 
 /** 
  * Récupérer les liens des vidéos
- * @return PDOStatement avec les colonnes id et lien
+ * @return PDOStatement avec les colonnes id, lien et titre
  */
 
  function get_all_video(){
     global $connexion;
-    $video = $connexion->query('SELECT id, lien FROM video');
+    $video = $connexion->query('SELECT id, lien, titre FROM video');
     return $video;
  }
 
@@ -89,6 +89,16 @@ function get_page_count() {
     $nb_images = $connexion->query('SELECT COUNT(id) FROM image')->fetchColumn();
     $nb_pages = ceil($nb_images / $config['nb_pictures_page']);
     return $nb_pages;
+}
+
+/**
+ * Renvoie le nombre d'image en base
+ * @return int le nombre d'image
+ */
+function count_pictures() {
+    global $connexion, $config;
+    $nb_images = $connexion->query('SELECT COUNT(id) FROM image')->fetchColumn();
+    return $nb_images;
 }
 
 /**

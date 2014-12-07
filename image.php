@@ -8,11 +8,9 @@ require_once('init.php');
 		<title>Agua Sonora</title>
 		<link href="css/reset.css" rel="stylesheet">
 		<link href="css/style.css" rel="stylesheet">
-		<link href="css/bxslider/jquery.bxslider.css" rel="stylesheet"><!-- plugin bxslider -->
 		<link href="css/simpleplaylist.css" rel="stylesheet"><!-- plugin simple playlist -->
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-		<script src="js/bxslider/jquery.bxslider.min.js"></script><!-- plugin bxslider -->
 		<script src="js/jquery.simpleplaylist.js"></script><!-- plugin simple playlist -->
 	</head>
 	<body>
@@ -29,8 +27,18 @@ require_once('init.php');
         				echo 'Aucune valeur trouvée';
     				}
 				}
+				$suivant = ($_GET['id'])+1;
+				$precedent = ($_GET['id'])-1;
+				$nb_images = count_pictures();
+				if(($_GET['id'])< $nb_images){
+					echo '<a class="nav-full-picture" href="image.php?id='.$suivant.'">></a>';
+				}
+				else {
+					echo '<a class="nav-full-picture" href="image.php?id='.$precedent.'"><</a>';
+				}
+				
 				?>
-				<img src="img/slider/select-slide-2.png" alt="" title="" height="100%"/>
+				<!--<img src="img/slider/select-slide-2.png" alt="" title="" height="100%"/>-->
 			</div>
 
 			<div id="images-sons" class="images-sons">
@@ -66,73 +74,41 @@ require_once('init.php');
 			        }
 			        ?>
 			    </div>
-			    <?= menu_pagination($page + 1, $nb_pages); ?>
+			    <!--<?= menu_pagination($page + 1, $nb_pages); ?>-->
 
 				<h1>VIDÉOS</h1>
 
-				<p class="info-video">Lieu, date de la vidéo</p>
-				<a href="http://www.xxxxxxxxxxxxx..." target="_blank">http://www.xxxxxxxxxxxxx...</a>
+				<div class="listing-video">
 
-				<p class="info-video">Lieu, date de la vidéo</p>
-				<a href="http://www.xxxxxxxxxxxxx..." target="_blank">http://www.xxxxxxxxxxxxx...</a>
+				<p class="info-video">Clip Agua Sonora - novembre 2014</p>
+				<a href="http://vimeo.com/113073557" target="_blank">http://vimeo.com/113073557</a>
 
-				<p class="info-video">Lieu, date de la vidéo</p>
-				<a href="http://www.xxxxxxxxxxxxx..." target="_blank">http://www.xxxxxxxxxxxxx...</a>
+
+				</div>
 
 				<h1>MUSIQUE</h1>
 
 				<ul class="playlist">
-					<li>
-						<div class="track">
-						<span class="controls" id="playToggle"></span>
-						<span class="title">Titre morceau</span>
-						</div>
-						<audio>
-						<source src="audio/test.mp3" type="audio/mp3" />
-						Your browser does not support the <code>audio</code> element.
-						</audio>
-					</li>
-					<li>
-						<div class="track">
-						<span class="controls" id="playToggle"></span>
-						<span class="title">Titre morceau</span>
-						</div>
-						<audio>
-						<source src="audio/speed.mp3" type="audio/mp3" />
-						<source src="audio/speed.ogg" type="audio/ogg" />
-						Your browser does not support the <code>audio</code> element.
-						</audio>
-					</li>
-					<li>
-						<div class="track">
-						<span class="controls" id="playToggle"></span>
-						<span class="title">Titre morceau</span>
-						</div>
-						<audio>
-						<source src="audio/top90(radio).mp3" type="audio/mp3" />
-						<source src="audio/top90(radio).ogg" type="audio/ogg" />
-						Your browser does not support the <code>audio</code> element.
-						</audio>
-					</li>
+					<?php
+					$nb_music = $config['nb_music'];
+					$musics = get_last_music($nb_music);
+					foreach($musics as $music) {
+						echo '<li><div class="track">'
+							.'<span class="controls" id="playToggle"></span>'
+							.'<span class="title"> ' .$music['nom'].'</span>'
+							.'</div>'
+							.'<audio>'
+							.'<source src="audio/'.$music['nom'].'" type="audio/mp3" />
+							Your browser does not support the <code>audio</code> element.'
+							.'</audio>'
+							.'</li>';
+					}
+					?>
 				</ul>	
 
-				<p class="retour"><a href="index.php#images-sons">[&#10132 RETOUR]</a></p>
+				<p class="retour"><a href="index.php?menu=#images-sons">[&#10132 RETOUR]</a></p>
 
 			</div>
-
-		<script>
-			$(document).ready(function(){
-				$('.bxslider').bxSlider(
-				  	{
-				    slideWidth: 300,
-				    minSlides: 4,
-				    maxSlides: 4,
-				    moveSlides: 3,
-				    slideMargin: 5
-				  	}
-				);
-			});
-		</script>
 
 		 <script>
         	$(document).ready(function() {

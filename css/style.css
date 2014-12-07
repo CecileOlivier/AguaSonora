@@ -151,7 +151,7 @@ p {
     }
 
     body {
-        background: url('../img/background.png') no-repeat center fixed; 
+        background: url('../img/background.jpg') no-repeat center fixed; 
           -webkit-background-size: cover; /* pour Chrome et Safari */
           -moz-background-size: cover; /* pour Firefox */
           -o-background-size: cover; /* pour Opera */
@@ -220,6 +220,7 @@ p {
     .who, .calendrier {
         background-color: rgba(0, 158, 224, 0.8);
         color:#FFFFFF;
+        height:65%;
     }
 
     .who, .calendrier, .images-sons {
@@ -234,6 +235,7 @@ p {
 
     .who, .calendrier {
     	top:25%;
+        overflow:auto;
     }
 
     p {
@@ -241,6 +243,16 @@ p {
         font-size: 0.6em; /*12px*/
         padding-bottom:1em;
         line-height: 1.2em;
+        text-align: left;
+    }
+
+    a.lien-accueil {
+        color:white;
+        text-decoration: none;
+    }
+
+    a.lien-accueil:hover {
+        text-decoration: underline;
     }
 
     /* contact */
@@ -280,12 +292,17 @@ p {
        color: white;
     }
 
+    a.mail {
+        text-decoration: underline;
+        color:white;
+    }
+
     /* who we are*/
 
     .who h1 {
         font-family: 'Akkurat_Bold'; 
         font-size: 0.8em; /*16px*/
-        padding-top:0.6em;
+        padding-top:0.1em;
     }
 
     ul.groupe {
@@ -422,9 +439,19 @@ p {
     p.retour {
         font-family: 'Akkurat_Bold';
         font-weight: bold;
+        font-size:1em;
         position:absolute;
         right:6px;
         bottom:1px;
+    }
+
+    a.nav-full-picture {
+        text-decoration: none;
+        color:#009EE0;
+        font-size: 2em;
+        position:absolute;
+        left:95%;
+        top:50%;
     }
 }
 
@@ -440,7 +467,7 @@ p {
     }
 
     body {
-        background: url('../img/background.png') no-repeat center fixed; 
+        background: url('../img/background.jpg') no-repeat center fixed; 
           -webkit-background-size: cover; /* pour Chrome et Safari */
           -moz-background-size: cover; /* pour Firefox */
           -o-background-size: cover; /* pour Opera */
