@@ -71,36 +71,27 @@ require_once('init.php');
 
 			<div id="calendrier" class="calendrier hide">
 				<h1>Retrouvez-nous !</h1>
-
 				<?php
-				/*$nb_date = $config['nb_date_future'];
+				$nb_date = $config['nb_date_future'];
 				$dates = get_last_date($nb_date);
 				foreach($dates as $date) {
-					echo '<p class="date">'.$date['date'].'</p>'
+					setlocale (LC_TIME, 'fr_FR.utf8','fra'); 
+					$jour = strftime("%d %B %Y",strtotime($date['date']));
+					echo '<p class="date">'.$jour.'</p>'
 						.'<p class="lieu">'.$date['heure'].' '.$date['adresse'].' - '.$date['ville'].' ('.$date['departement'].')</p>';
-				}*/
+				}
 				?>
-
-				<p class="date">14 DÉCEMBRE 2014</p>
-				<p class="lieu">16:00 Marché de noël / Place Travot – Cholet (49)</p>
-
-				<p class="date">21 DÉCEMBRE 2014</p>
-				<p class="lieu">15:30 Marché de noël / centre ville – Saint-Nazaire (44)</p>
-
-				<p class="date">10 JANVIER 2015</p>
-				<p class="lieu">20:30 Espace culturel – Saint-Jouan-des-Guerets (35)</p>
-
-				<p class="date">23 JANVIER 2015</p>
-				<p class="lieu">20:30 La cave à sons – L'herbergement (85)</p>
-
 				<h2>Vous avez pu nous voir...</h2>
-
-				<p class="date passe">05 NOVEMBRE 2014</p>
-				<p class="lieu passe">20:30 Australian café – Nantes (44)</p>
-
-				<p class="date passe">06 NOVEMBRE 2014</p>
-				<p class="lieu passe">20:30 Altercafé – Nantes (44)</p>
-
+				<?php
+				$nb_date = $config['nb_date_passee'];
+				$dates = get_previous_date($nb_date);
+				foreach($dates as $date) {
+					setlocale (LC_TIME, 'fr_FR.utf8','fra'); 
+					$jour = strftime("%d %B %Y",strtotime($date['date']));
+					echo '<p class="date passe">'.$jour.'</p>'
+						.'<p class="lieu passe">'.$date['heure'].' '.$date['adresse'].' - '.$date['ville'].' ('.$date['departement'].')</p>';
+				}
+				?>
 			</div>
 
 			<div id="images-sons" class="images-sons hide">
@@ -152,16 +143,13 @@ require_once('init.php');
 				<h1>VIDÉOS</h1>
 
 				<div class="listing-video">
-
-				<p class="info-video">Clip Agua Sonora - novembre 2014</p>
-				<a href="http://vimeo.com/113073557" target="_blank">http://vimeo.com/113073557</a>
-
-				<!--<p class="info-video">Lieu, date de la vidéo</p>
-				<a href="http://www.xxxxxxxxxxxxx..." target="_blank">http://www.xxxxxxxxxxxxx...</a>
-
-				<p class="info-video">Lieu, date de la vidéo</p>
-				<a href="http://www.xxxxxxxxxxxxx..." target="_blank">http://www.xxxxxxxxxxxxx...</a>-->
-
+					<?php
+					$videos = get_all_video();
+					foreach($videos as $video) {
+						echo '<p class="info-video">'.$video['titre'].'</p>'
+							.'<a href="' .$video['lien'].'" target="_blank">'.$video['lien'].'</a>';
+					}
+					?>
 				</div>
 
 				<h1>MUSIQUE</h1>
@@ -182,30 +170,6 @@ require_once('init.php');
 							.'</li>';
 					}
 					?>
-
-			
-					<!--<li>
-						<div class="track">
-						<span class="controls" id="playToggle"></span>
-						<span class="title">Titre morceau</span>
-						</div>
-						<audio>
-						<source src="audio/speed.mp3" type="audio/mp3" />
-						<source src="audio/speed.ogg" type="audio/ogg" />
-						Your browser does not support the <code>audio</code> element.
-						</audio>
-					</li>
-					<li>
-						<div class="track">
-						<span class="controls" id="playToggle"></span>
-						<span class="title">Titre morceau</span>
-						</div>
-						<audio>
-						<source src="audio/top90(radio).mp3" type="audio/mp3" />
-						<source src="audio/top90(radio).ogg" type="audio/ogg" />
-						Your browser does not support the <code>audio</code> element.
-						</audio>
-					</li>-->
 				</ul>	
 
 			</div>
@@ -214,7 +178,7 @@ require_once('init.php');
 				<ul class="nom">
 					<li>Michel MAILLARD</li>
 					<li>Tel. : 06 75 25 23 58</li>
-					<li>contact@agua-sonora.fr</li>
+					<li><a class="mail" href="mailto:contact@agua-sonora.fr">contact@agua-sonora.fr</a></li>
 				</ul>
 				<ul class="adresse">
 					<li>-</li>

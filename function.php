@@ -19,7 +19,7 @@
 
  function get_last_date($count){
 	global $connexion;
-	$date = $connexion->query('SELECT id, date, heure, adresse, ville, departement FROM calendrier ORDER BY date DESC LIMIT '.$count);
+	$date = $connexion->query('SELECT id, date, heure, adresse, ville, departement FROM calendrier WHERE date >= NOW() ORDER BY date DESC LIMIT '.$count);
 	return $date;
  }
 
@@ -29,9 +29,9 @@
  * @return PDOStatement avec les colonnes id, date, heure, adresse, ville, departement 
  */
 
- function get_other_date($count){
+ function get_previous_date($count){
     global $connexion;
-    $date = $connexion->query('SELECT id, date, heure, adresse, ville, departement FROM calendrier ORDER BY date LIMIT '.$count);
+    $date = $connexion->query('SELECT id, date, heure, adresse, ville, departement FROM calendrier WHERE date < NOW() ORDER BY date LIMIT '.$count);
     return $date;
  }
 

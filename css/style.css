@@ -382,7 +382,7 @@ p {
     .calendrier h1::after {
         content : 'ˍˍˍ';
         position:absolute;
-        left:0.4em;
+        left:0.1em;
         margin-top:0.2em;
     }
 
@@ -396,7 +396,7 @@ p {
     .calendrier h2::after {
         content : 'ˍˍˍ';
         position:absolute;
-        left:0.4em;
+        left:0.1em;
         margin-top:0.3em;
     }
 
@@ -405,6 +405,7 @@ p {
         font-size: 0.7em;
         padding-bottom:0.1em;
         padding-top: 0.5em;
+        text-transform: uppercase;
     }
 
     p.lieu {
