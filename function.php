@@ -7,7 +7,7 @@
 
  function get_texte(){
     global $connexion;
-    $texte = $connexion->query('SELECT id, texte FROM presentation');
+    $texte = $connexion->query('SELECT id, texte FROM presentation')->fetch();
     return $texte;
  }
 
@@ -76,7 +76,7 @@
 
  function get_contact(){
     global $connexion;
-    $contact = $connexion->query('SELECT id, texte FROM contact');
+    $contact = $connexion->query('SELECT id, texte FROM contact')->fetch();;
     return $contact;
  }
 

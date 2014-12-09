@@ -12,6 +12,17 @@ function get_all_date(){
  }
 
 /* 
+ * Récupérer une date par son id
+ * @return PDOStatement avec les colonnes id, date, heure, adresse, ville, departement
+ */
+
+function get_date_by($id){
+    global $connexion;
+    $date = $connexion->query('SELECT id, date, heure, adresse, ville, departement FROM calendrier WHERE id = '.$connexion->quote($id))->fetch();
+    return $date;
+ }
+
+/* 
  * Récupérer tous les morceaux
  * @return PDOStatement avec les colonnes id, nom, date
  */
@@ -20,6 +31,28 @@ function get_all_date(){
     global $connexion;
     $music = $connexion->query('SELECT id, nom, date FROM audio');
     return $music;
+ }
+
+/* 
+ * Récupérer une musique par son id
+ * @return PDOStatement avec les colonnes id, nom
+ */
+
+function get_music_by($id){
+    global $connexion;
+    $music = $connexion->query('SELECT id, nom FROM audio WHERE id = '.$connexion->quote($id))->fetch();
+    return $music;
+ }
+
+/* 
+ * Récupérer une video par son id
+ * @return PDOStatement avec les colonnes id, lien, titre
+ */
+
+function get_video_by($id){
+    global $connexion;
+    $video = $connexion->query('SELECT id, lien, titre FROM video WHERE id = '.$connexion->quote($id))->fetch();
+    return $video;
  }
 
 /* 
@@ -75,6 +108,40 @@ function get_all_date(){
  }
 
 /* 
+ * Insérer un nouveau lien vidéo
+ * @param $nom les données à insérer passées par l'utilisateur
+ * @return PDOStatement un nouveau lien avec les colonnes id, lien
+ */
+
+ function insert_video($lien, $titre){
+    global $connexion;
+    $new_video = $connexion->prepare('INSERT INTO video (lien, titre) 
+                                     VALUES (:lien, :titre)');
+    $ok = $new_video->execute(array(
+        ':lien' => $lien,
+        ':titre' => $titre
+        ));
+    return $ok;
+ }
+
+/* 
+ * Modifier un texte selon son id
+ * @param $nom les données à insérer passées par l'utilisateur
+ * @return PDOStatement une nouveau texte de présentation avec les colonnes id, présentation
+ */
+
+ function update_texte($id, $texte){
+    global $connexion;
+    $new_texte = $connexion->prepare('UPDATE presentation SET texte=:texte WHERE id=:id');
+
+    $ok = $new_texte->execute(array(
+        ':id' => $id,
+        ':texte' => $texte
+        ));
+    return $ok;
+ }
+
+/* 
  * Modifier une date selon son id
  * @param $date, $heure, $adresse, $ville, $departement, les données à insérer passées par l'utilisateur
  * @return PDOStatement une date modifiée avec les colonnes id, date, heure, adresse, ville, departement
@@ -82,7 +149,6 @@ function get_all_date(){
 
  function update_date($id, $date, $heure, $adresse, $ville, $departement){
  	global $connexion;
- 	$news = $connexion->prepare('UPDATE news SET titre=:titre, texte=:texte, auteur=:auteur, image=:image WHERE id=:id');
  	$new_date = $connexion->prepare('UPDATE calendrier 
  									SET id=:id, date=:date, heure=:heure, adresse=:adresse, ville=:ville, departement=:departement 
  									WHERE id=:id');
@@ -105,8 +171,7 @@ function get_all_date(){
 
  function update_picture($id, $nom){
  	global $connexion;
- 	$new_picture = $connexion->prepare('UPDATE image (id, nom) 
- 									 SET (nom=:nom WHERE id=:id)');
+ 	$new_picture = $connexion->prepare('UPDATE image SET nom=:nom WHERE id=:id');
  	$ok = $new_picture->execute(array(
  		':id' => $id,
  		':nom' => $nom
@@ -122,13 +187,45 @@ function get_all_date(){
 
  function update_music($id, $nom){
  	global $connexion;
- 	$new_music = $connexion->prepare('UPDATE audio (id, nom) 
- 									 SET (nom=:nom WHERE id=:id)');
+ 	$new_music = $connexion->prepare('UPDATE audio SET nom=:nom WHERE id=:id');
  	$ok = $new_music->execute(array(
  		':id' => $id,
  		':nom' => $nom
  		));
  	return $ok;
+ }
+
+ /* 
+ * Modifier un lien selon son id
+ * @param $nom les données à insérer passées par l'utilisateur
+ * @return PDOStatement un nouveau lien avec les colonnes id, lien
+ */
+
+ function update_video($id, $lien, $titre){
+    global $connexion;
+    $new_video = $connexion->prepare('UPDATE video SET lien=:lien, titre=:titre WHERE id=:id');
+    $ok = $new_video->execute(array(
+        ':id' => $id,
+        ':lien' => $lien,
+        ':titre' => $titre
+        ));
+    return $ok;
+ }
+
+/* 
+ * Modifier le texte contact selon son id
+ * @param $nom les données à insérer passées par l'utilisateur
+ * @return PDOStatement une nouveau texte de contact avec les colonnes id, texte
+ */
+
+ function update_contact($id, $texte){
+    global $connexion;
+    $new_contact = $connexion->prepare('UPDATE contact SET texte=:texte WHERE id=:id');
+    $ok = $new_contact->execute(array(
+        ':id' => $id,
+        ':texte' => $texte
+        ));
+    return $ok;
  }
 
 /* 
