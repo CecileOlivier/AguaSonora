@@ -33,12 +33,20 @@ h1 {
 	font-size: 18px;
 	color: #2E2E2E;
 	text-transform: uppercase;
-	margin: 0.5em;
+	margin: 1.5em;
 }
 
 h2 {
 	font-family: 'Akkurat_Bold';
 	font-size: 16px;
+	color: #009EE0;	
+	text-transform: uppercase;
+	margin-bottom: 1em;
+}
+
+h3 {
+	font-family: 'Akkurat_Bold';
+	font-size: 14px;
 	color: #009EE0;	
 	text-transform: uppercase;
 	margin-bottom: 1em;
@@ -55,7 +63,7 @@ h1 > small {
 /* ******************************** */
 
 .calendrier, .image, .music, .video, .whoweare, .contact  {
-	background-color: #EFF8FD;
+	/*background-color: #EFF8FD;*/
 	font-family: 'Akkurat';
 	font-size: 13px;
 	color: #2E2E2E;
@@ -63,7 +71,7 @@ h1 > small {
 	padding:0.2em;
 }
 
-.whoweare {
+/*.whoweare {
 	width: 98%;
 	height:20%;
 	overflow: auto;
@@ -87,30 +95,30 @@ h1 > small {
 
 .image, .music, .video {
 	top:65%;
-}
+}*/
 
 .image {
 	width:30%;
-	height:30%;
 	overflow: auto;
-	position: absolute;
+	/*position: absolute;*/
 	left:0%;
+	float:left;
 }
 
 .music {
 	width:30%;
-	height:30%;
 	overflow: auto;
-	position: absolute;
+	/*position: absolute;*/
 	left:34%;
+	float: left;
 }
 
 .video {
 	width:30%;
-	height:30%;
 	overflow: auto;
-	position: absolute;
+	/*position: absolute;*/
 	left:68%;
+	float:left;
 }
 
 table {
