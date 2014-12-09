@@ -4,37 +4,43 @@ $(document).ready(function() {
 
           /* La largeur minimum de l'affichage est de 768px */
           $('#mobile').addClass('display');
-           /* Valeur du hash */
-          /*var hash = window.location.hash;
-          var bloc = '#images-sons';
-          if(hash == bloc){
-            $('#images-sons').removeClass('tabs-hide');
+          /*$(window).load(function(){
+            var hash = window.location.hash;
             console.log('le hash est '+hash);
-          }
-          else {
-            console.log('pas de hash');
-          }*/
+          });*/
           // état de base : les blocs sont cachés
           $('#content > div').addClass('tabs-hide'); 
+          
           // au clic sur un élément du menu,
           $('.menu a').click(function(event) {
               // variable contenant la valeur du lien
     	        var anchor_init = $(event.currentTarget).attr('href');
               // variable contenant l'ancre
-              var anchor = anchor_init.substring(15);
+              //ar anchor = anchor_init.substring(15);
     	        // on cache tous les blocs
     	        $('#content > div').addClass('tabs-hide'); 
               // on affiche le bloc lié au menu
-    	        $(anchor).removeClass('tabs-hide'); 
+    	        $(anchor_init).removeClass('tabs-hide'); 
     	        // gestion de la classe active sur le menu
     	        $('.menu li').removeClass('active');
-    	        $(".menu a[href=index\\.php\\?menu\\=\\"+anchor+"]").parent('li').addClass('active'); 
+    	        $(".menu a[href=\\"+anchor_init+"]").parent('li').addClass('active'); 
     	        event.defaultPrevented;
+              /*$('a .retour').click(function(event) {
+                  $('#images-sons').removeClass('tabs-hide');
+              });*/
           });
           $(window).load(function(){
               $("#who").mCustomScrollbar();
               $("#calendrier").mCustomScrollbar();
           });
+          
+          // si un hash est présent, on simule le clic sur le lien correspondant
+          var hash = window.location.hash;
+          if(hash) {
+            var lien = $('[href="'+hash+'"]')
+            console.log(lien);
+            lien.click();
+          }
     } 
 
     else {
