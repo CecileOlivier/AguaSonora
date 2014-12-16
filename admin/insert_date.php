@@ -12,7 +12,7 @@ require_once('init.php');
 	</head>
 	<body>
 		<header>
-			<h1>Espace d'administration >> <small>Insertion d'une date </small></h1> 
+			<h1>Espace d'administration - Insertion d'une date dans le calendrier</h1> 
 			<a href="../session.php?logout">
 				<input type="button" name="btn" class="btn-style deco" value="Déconnexion" title="Déconnexion"/>
 			</a>
@@ -86,15 +86,15 @@ require_once('init.php');
 
 			<form id="insert" method="post" action="">
 			    <p><label for="date"># Date</label></p>
-                <p><input type="text" id="date" name="date" placeholder="" value=""/></p>
+                <p><input type="date" id="date" name="date" placeholder="yyyy-mm-dd" value=""/></p>
                 <p><label for="heure"># Heure</label></p>
-                <p><input type="text" id="heure" name="heure" placeholder="" value=""/></p>
+                <p><input type="time" id="heure" name="heure" placeholder="..:..:.." value=""/></p>
 			    <p><label for="adresse"># Adresse</label></p>
                 <p><input type="text" id="adresse" name="adresse" placeholder="" value=""/></p>
                 <p><label for="ville"># Ville</label></p>
                 <p><input type="text" id="ville" name="ville" placeholder="" value=""/></p>
                 <p><label for="departement"># Département</label></p>
-                <p><input type="text" id="departement" name="departement" placeholder="" value=""/></p>
+                <p><input type="number" id="departement" name="departement" placeholder="" value=""/></p>
                 <p><input type="submit" class="btn-style" name="Ajouter" value="Ajouter"></p>
             </form>
 
@@ -105,7 +105,7 @@ require_once('init.php');
     	?>
 
         </div>
-
+		<a href="index.php"><button class="btn-style">↩ Retour</button></a>
 		</main>
 	</body>
 </html>
