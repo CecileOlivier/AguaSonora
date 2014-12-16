@@ -5,7 +5,7 @@ require_once('init.php');
 <html lang="fr">
     <head>
         <meta charset="UTF-8">
-        <title>Agua Sonora : Mise à jour du texte de présentation</title>
+        <title>Agua Sonora : Modification du texte de présentation</title>
         <link href="../css/reset.css" rel="stylesheet">
         <link href="../css/admin.css" rel="stylesheet">
         <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
@@ -27,7 +27,7 @@ require_once('init.php');
     </head>
     <body>
         <header>
-            <h1>Espace d'administration - Mise à jour du texte de présentation</h1>
+            <h1>Espace d'administration - Modification du texte de présentation</h1>
             <a href="../session.php?logout"><input type="button" name="btn" class="btn-style deco" value="Déconnexion" title="Déconnexion"/></a>
         </header>
 
@@ -67,14 +67,14 @@ if(isset($_GET['id'])) {
         // est-ce que le formulaire est renvoyé ?
         if(isset($_POST['texte'])) {
             $texte = ($_POST['texte']);
-
+            strip_tags($texte, '<p><a><ul><li><h1>');
             // on valide les données
             $form_valid = form_valid($texte);
             if($form_valid === true) {
                     // on insère
                     $updatetexte = update_texte($id, $texte);
                     if($updatetexte === true) {
-                        echo '<p class="success">Mise à jour réussie.</p><p><a href="index.php">↩ Retour</a></p>'.PHP_EOL;
+                        echo '<p class="success">Mise à jour réussie.</p><p><a href="index.php"><button class="btn-style">↩ Retour</button></a></p>'.PHP_EOL;
                         $affichage_formulaire = false;
                     } else {
                         echo '<p class="error">Il y a eu une erreur dans la mise à jour, veuillez réessayer.</p>'.PHP_EOL;
@@ -93,10 +93,10 @@ if(isset($_GET['id'])) {
             echo '</form>';
         }
     } else {
-        echo '<p class="error">Fichier introuvable. <a href="index.php">↩ Retour</a></p>'.PHP_EOL;
+        echo '<p class="error">Fichier introuvable. <a href="index.php"><button class="btn-style">↩ Retour</button></a></p>'.PHP_EOL;
     }
 } else {
-    echo '<p class="error">Veuillez choisir un fichier. <a href="index.php">↩ Retour</a></p>'.PHP_EOL;
+    echo '<p class="error">Veuillez choisir un fichier. <a href="index.php"><button class="btn-style">↩ Retour</button></a></p>'.PHP_EOL;
 }
 
 ?>
