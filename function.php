@@ -31,7 +31,7 @@
 
  function get_previous_date($count){
     global $connexion;
-    $date = $connexion->query('SELECT id, date, heure, adresse, ville, departement FROM calendrier WHERE date < NOW() ORDER BY date LIMIT '.$count);
+    $date = $connexion->query('SELECT id, date, heure, adresse, ville, departement FROM calendrier WHERE date < NOW() ORDER BY date DESC LIMIT '.$count);
     return $date;
  }
 
