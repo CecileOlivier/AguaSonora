@@ -70,9 +70,12 @@ body {
 }
 
 .contact {
+    position: absolute;
+    top:0;
     font-family: 'Akkurat'; 
     font-size: 1em;   
-    padding :1%; 
+    margin-left: 1em;
+    margin-top: 1em;
 }
 
 li strong {
@@ -80,42 +83,80 @@ li strong {
 }
 
 img.image-mobile {
-    position: absolute;
     width:100%;
-    top:20%;
+    margin-top:11em;
+    margin-bottom: 3em;
 }
 
 div.tabs-hide {
     display:none;
 }
 
-.who, .calendrier, .images-sons {
-    position: absolute;
+.textes {
+    position:absolute;
     top:60%;
+    float: right;
+    padding-right: 1em;
+    padding-left: 1em;
+    margin-bottom: 1em;
+    text-align: justify;
 }
 
 ul.menu {
+    display:block;
     position: absolute;
-    top:50%;
-    width:98%;
-    list-style-type: none;
-    text-transform: uppercase;
-    text-align:right;
-    line-height: 2em;
-    padding:1%;
+    top:52%;
+    line-height: 1.5em;
     }
 
 ul.menu li {
     font-family: 'Akkurat_Bold'; 
+    font-size: 0.8em;
+    color:#009EE0;
+    text-transform: uppercase;
     font-size: 1.5em;
-    right:0;
-    }
+    margin-left:0.5em;
+}
 
 .menu a {
-    color:#009EE0;
     text-decoration:none;
-    text-align: right;
-    }
+    color:#009EE0;
+}
+
+a {
+    color:black;
+}
+
+/* images & sons */
+
+.images-sons h1 {
+    font-family: 'Akkurat_Bold'; 
+    font-size:1.2em;
+    color: #009EE0;
+}
+
+p.info-video {
+    font-family: 'Akkurat_Bold_Italic'; 
+}
+
+p.player {
+    font-family: 'Akkurat_Italic'; 
+}
+
+.images-sons a {
+    font-family: 'Akkurat_Light'; 
+}
+
+.gallery, .listing-video, ul.playlist {
+    padding-top:0.5em;
+    padding-bottom:0.5em;
+}
+
+.slide a{
+    float:left;
+    padding-left:0.8em;
+    padding-bottom: 0.3em;
+}
 
 /* who we are*/
 
@@ -138,6 +179,54 @@ p {
     line-height: 1em;
     text-align: justify;
 }
+
+/* calendrier */
+
+.calendrier h1 {
+    font-family: 'Akkurat_Bold'; 
+    margin-bottom: 1em;
+    font-size:1.2em;
+}
+
+.calendrier h1::after {
+    content : 'ˍˍˍ';
+    position:absolute;
+    left:1.1em;
+    margin-top:0.2em;
+}
+
+.calendrier h2 {
+    font-family: 'Akkurat_Bold'; 
+    padding-top:3em;
+    margin-bottom: 0.2em;
+    font-size:1.2em;
+}
+
+.calendrier h2::after {
+    content : 'ˍˍˍ';
+    position:absolute;
+    left:1.1em;
+    margin-top:0.3em;
+}
+
+p.date {
+    font-family: 'Akkurat_Bold'; 
+    padding-bottom:0.1em;
+    padding-top: 0.5em;
+    text-transform: uppercase;
+}
+
+p.lieu {
+    font-family: 'Akkurat_Italic'; 
+    padding-bottom: 0.5em;
+    border-bottom: 1px dashed white;
+}
+
+p.passe {
+    opacity:0.6;
+}
+
+
 
 /* ******************************** */
 /*    Tablette portrait : 768px     */
@@ -199,6 +288,7 @@ p {
     ul.menu li {
         font-family: 'Akkurat_Bold'; 
         font-size: 0.8em; /*16px*/
+        margin-left:0;
     }
 
     .menu a {
@@ -225,6 +315,8 @@ p {
 
     .who, .calendrier, .images-sons {
         width:15em; /*300px*/
+        margin-left:0em;
+        margin-right: 0em;
     }
 
     .who, .calendrier, .contact {
@@ -272,8 +364,6 @@ p {
         bottom:0; 
         color:white;
         padding:0.9em 0.9em 0em 0.5em;
-        /*border-bottom: 60px solid transparent;
-        border-right: 60px solid #009EE0;*/
     }
 
     ul.nom {
@@ -321,6 +411,7 @@ p {
         color: #009EE0;
         min-height: 100%;
         padding: 0em 0.4em 0em 0.4em;
+        text-align: left;
     }
 
     .images-sons h1 {
@@ -328,6 +419,7 @@ p {
         font-size: 0.7em; /*14px*/
         border-bottom: 1px dashed #009EE0;
         padding-top:1em;
+        clear:both;
     }
 
     p.info-video {
@@ -336,12 +428,6 @@ p {
         padding-bottom:0;
         line-height: 0.8em;
     }
-
-    /*p.info-video::before {
-        content : 'ˍˍˍ';
-        position:absolute;
-        margin-top:-1.2em;
-    }*/
 
     p.player {
         font-family: 'Akkurat_Italic'; 
@@ -453,35 +539,10 @@ p {
         position:absolute;
         left:95%;
         top:50%;
+        background-color: white;
+        padding: 0.1em;
+        border-radius: 15%;
+        opacity: 0.6;
+        filter: alpha(opacity=60); /* For IE8 and earlier */
     }
-}
-
-
-/* ******************************** */
-/*      Tablette paysage : 795px    */
-/* ******************************** */
-
-@media screen and (min-height:795px) {
-
-    html {
-        font-size:125%;
-    }
-
-    body {
-        background: url('../img/background.jpg') no-repeat center fixed; 
-          -webkit-background-size: cover; /* pour Chrome et Safari */
-          -moz-background-size: cover; /* pour Firefox */
-          -o-background-size: cover; /* pour Opera */
-          background-size: cover; /* version standardisée */
-    }
-
-    /*img.logo {
-        position:absolute;
-        padding:0;
-        margin: auto;
-        top: 0; 
-        left: 0; 
-        bottom: 0; 
-        right: 0;
-    }*/
 }

@@ -164,21 +164,57 @@ table td {
 	bottom:1em;
 }*/
 
+p {
+	font-family: 'Akkurat';
+	margin: 1.5em;
+}
+
 a {
 	text-decoration:none;
+	color : #696869;
+}
+
+form {
+	padding:1.5em;
+}
+
+label {
+	font-family: 'Akkurat';
+}
+
+input {
+	margin-bottom:1em;
 }
 
 form#insert input[type="text"] {
 	width:500px;
 }
 
-form#insert input {
+form#insert input, form#update input{
 	margin-bottom:1em;
 	margin-left:1em;
+	width:500px;
 }
 
 form#insert label {
 	font-family: 'Akkurat';
 	font-size: 13px;
 	margin-left:1em;
+}
+
+/* ******************************** */
+/*				SESSION			    */
+/* ******************************** */
+
+body.session {
+	margin: auto;
+	padding: 0;
+	left:0;
+	right:0;
+	text-align:center;
+	font-family: 'Akkurat';
+}
+
+p.accueil {
+	margin-top: 3em;
 }
