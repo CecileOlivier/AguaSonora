@@ -273,6 +273,21 @@ function get_video_by($id){
     return $ok;
  }
 
+/* 
+ * Supprimer une vidéo selon son id
+ * @param $id identifiant du ficheir son à supprimer sélectionné par l'utilisateur
+ * @return PDOStatement un lien et un titre supprimés
+ */
+
+ function delete_video($id) {
+    global $config, $connexion;
+    $video_delete = $connexion->prepare('DELETE FROM video WHERE id=:id');
+    $ok = $video_delete->execute(array(
+        ':id' => $id
+        ));
+    return $ok;
+ }
+
 /**
  * Récupère une date à partir de son id
  * @param int $id l’identifiant de la date
@@ -283,4 +298,39 @@ function get_date($id) {
     global $connexion;
     $date = $connexion->query('SELECT id, date, heure, adresse, ville, departement FROM calendrier WHERE id = '.$connexion->quote($id))->fetch();
     return $date;
+}
+
+/**
+ * Renvoie un nom de fichier unique pour le dossier voulu, en renommant si besoin le nom passé en paramètre.
+ *
+ * @param string $filename le nom de fichier.
+ * @param string $dir le dossier dans lequel on cherche à enregistrer le fichier.
+ * @return string un nom de fichier basé sur $filename mais qui n’existe pas.
+ * encore dans le dossier (ou $filename s’il n’y a pas de doublon).
+ */
+function get_unique_filename($filename, $dir) {
+    // si on nous fournit un $dir sans slash final, on le rajoute manuellement 
+    // pour pouvoir concaténer proprement le chemin
+    if(substr($dir, -1) != '/') {
+        $dir .= '/';
+    }
+    // on extrait l’extension et le nom de base du fichier $filename, car dans 
+    // la boucle qui suit, on se servira de ces 2 parties de fichier pour en 
+    // calculer un nouveau, supposément unique
+    $extension = strrchr($filename, '.');
+    $base_filename = substr($filename, 0, -(strlen($extension)));
+
+    // pour chaque passage dans la boucle while, on incrémentera le compteur 
+    // dans le nom de fichier (exemple : image.jpg → image_2.jpg → image_3.jpg…)
+    $counter = 1;
+
+    // on cherche à vérifier l’unicité du fichier $filename ; donc, tant qu’un 
+    // fichier de ce nom existe, on tente un nouveau nom.
+    while(file_exists($dir.$filename)) {
+        $counter++;
+        // on construit un nouveau nom de fichier à partir de celui de base et 
+        // du compteur, qu’on incrémente.
+        $filename = $base_filename.'_'.$counter.$extension;
+    }
+    return $filename;
 }

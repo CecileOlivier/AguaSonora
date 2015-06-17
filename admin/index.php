@@ -8,7 +8,7 @@ require_once('init.php');
 		<title>Agua Sonora : administration</title>
 		<link href="../css/reset.css" rel="stylesheet">
 		<link href="../css/admin.css" rel="stylesheet">
-		<link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+		<link rel="stylesheet" href="../css/jquery.tab.css">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 		<script src="//code.jquery.com/jquery-1.10.2.js"></script>
 		<script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
@@ -84,7 +84,7 @@ require_once('init.php');
 			    	.'<td>'.$date['ville'].'</td>'.PHP_EOL
 					.'<td>('.$date['departement'].')</td>'.PHP_EOL
 			    	.'<td><a href="update-date.php?id='.$date['id'].'"><input type="button" class="btn-style" name="update" value="&#10000" title="Modifier"/></a>'
-			    	.'<a href="delete-date.php?id='.$date['id'].'"><input type="button" class="btn-style" name="delete" value="&#10007" title="Supprimer"/></a></td>'.PHP_EOL
+			    	.'<a href="delete_date.php?id='.$date['id'].'"><input type="button" class="btn-style" name="delete" value="&#10007" title="Supprimer"/></a></td>'.PHP_EOL
 			    	.'</tr>'.PHP_EOL;
 			}
 			echo '</table>';
@@ -166,6 +166,7 @@ require_once('init.php');
 				}
 				echo '</table>';
 				?>
+				<a href="insert_video.php"><input type="button" name="ajouter"  class="btn-style add" value="Ajouter une vidéo"/></a>
 				</section>
 			</div>
 
