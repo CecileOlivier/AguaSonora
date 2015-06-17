@@ -94,7 +94,7 @@ div.tabs-hide {
 
 .textes {
     position:absolute;
-    top:60%;
+    top:76%;
     float: right;
     padding-right: 1em;
     padding-left: 1em;
@@ -105,7 +105,7 @@ div.tabs-hide {
 ul.menu {
     display:block;
     position: absolute;
-    top:52%;
+    top:64%;
     line-height: 1.5em;
     }
 
@@ -136,11 +136,11 @@ a {
 }
 
 p.info-video {
-    font-family: 'Akkurat_Bold_Italic'; 
+    font-family: 'Akkurat_Bold_Italic', sans-serif; 
 }
 
 p.player {
-    font-family: 'Akkurat_Italic'; 
+    font-family: 'Akkurat_Italic', sans-serif; 
 }
 
 .images-sons a {
@@ -210,14 +210,14 @@ p {
 }
 
 p.date {
-    font-family: 'Akkurat_Bold'; 
+    font-family: 'Akkurat_Bold', sans-serif; 
     padding-bottom:0.1em;
     padding-top: 0.5em;
     text-transform: uppercase;
 }
 
 p.lieu {
-    font-family: 'Akkurat_Italic'; 
+    font-family: 'Akkurat_Italic', sans-serif; 
     padding-bottom: 0.5em;
     border-bottom: 1px dashed white;
 }
@@ -226,6 +226,31 @@ p.passe {
     opacity:0.6;
 }
 
+
+/* ******************************** */
+/*    Mobile : 360px     */
+/* ******************************** */
+
+@media screen and (min-width:360px) {
+
+    .textes {
+        position:absolute;
+        top:60%;
+        float: right;
+        padding-right: 1em;
+        padding-left: 1em;
+        margin-bottom: 1em;
+        text-align: justify;
+    }
+
+    ul.menu {
+        display:block;
+        position: absolute;
+        top:52%;
+        line-height: 1.5em;
+       }
+
+}
 
 
 /* ******************************** */
