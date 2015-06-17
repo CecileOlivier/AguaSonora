@@ -11,12 +11,12 @@ require_once('init.php');
 		<link href="css/simpleplaylist.css" rel="stylesheet"><!-- plugin simple playlist -->
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+		<script src="js/main.js"></script>
 		<script src="js/jquery.simpleplaylist.js"></script><!-- plugin simple playlist -->
 	</head>
 	<body>
 
 			<div class="full-picture">
-
 				<?php
 				if(isset($_GET['id'])) {
 					$pictures = get_pictures_by($_GET['id']);
@@ -36,9 +36,7 @@ require_once('init.php');
 				else {
 					echo '<a class="nav-full-picture" href="image.php?id='.$precedent.'"><</a>';
 				}
-				
 				?>
-				<!--<img src="img/slider/select-slide-2.png" alt="" title="" height="100%"/>-->
 			</div>
 
 			<div id="images-sons" class="images-sons">
@@ -106,7 +104,7 @@ require_once('init.php');
 					?>
 				</ul>	
 
-				<p class="retour"><a href="index.php?menu=#images-sons">[&#10132 RETOUR]</a></p>
+				<p class="retour"><a href="index.php#images-sons">[&#10132 RETOUR]</a></p>
 
 			</div>
 
