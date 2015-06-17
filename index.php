@@ -22,54 +22,23 @@ require_once('init.php');
 		<nav>
 			<img src="img/logo-arbre.png" alt="logo" title="logo" class="logo"/>
 			<ul class="menu">
-				<li><a href="index.php?menu=#who" class="lienvisible">who we are</a></li>
-				<li><a href="index.php?menu=#calendrier" class="lienvisible">calendrier</a></li>
-				<li><a href="index.php?menu=#images-sons" class="lienvisible">images / sons</a></li>
-				<li><a href="index.php?menu=#contact" class="hide">contact</a></li>
+				<li><a href="#who" class="lienvisible">who we are</a></li>
+				<li><a href="#calendrier" class="lienvisible">calendrier</a></li>
+				<li><a href="#images-sons" class="lienvisible">images / sons</a></li>
+				<li><a href="#contact" class="hide">contact</a></li>
 			</ul>
 		</nav>
 
 		<div id="content">
 
-			<div id="who" class="who hide">
-				<p>Tels des nénuphars, au milieu de l’eau, cet orchestre
-				nous embarque dans son délire « aqua’zic ».
-				Voguant, se déplaçant au fil de l’eau, ils diffusent
-				leur musique jusqu’aux berges.</p>
-				<p>On écoute, on danse, on regarde, on observe... du
-				rêve à la réalité ! Un moment paisible, original,
-				unique, que nous offrent ces six compères. Ici,
-				l’esthétisme et la musique s’allient parfaitement.</p>
-				<p>Cet orchestre/fanfare joue de manière acoustique
-				et peut s’installer sur toutes les eaux tranquilles :
-				lacs, étangs, douves, rivières, ports, mers calmes et
-				piscines.</p>
-
-				<h1>Ambiance cubaine</h1>
-
-				<p>Ces musiciens détiennent une solide expérience
-				dans les répertoires cubains. Ils ont tous étudié sur
-				l’île, chacun dans sa spécialité. Leur répertoire
-				aborde les styles du « Son » et du « Cha Cha Cha »
-				sans oublier les morceaux résolument « Salsa ».
-				Le groupe existe aussi dans une configuration terrestre 
-				sous le nom de <a href="http://www.orquestadelacalle.com/"
-				class="lien-accueil" target="_blank">Orquesta de la Calle</a>.
-				</p>
-
-				<h1>Musiciens :</h1>
-
-				<ul class="groupe">
-					<li>Benjamin Lebert : Tuba</li>
-					<li>Aurélien Bucco : Trompette</li>
-					<li>Cyrille Maillard, Tobie Koppé : Percussions</li>
-					<li>Denis Peduzzi : Guitare</li>
-					<li>Erwan Thobie  : Trombone</li>
-  					<li>Cécile Dugué : Création costumes & scénographie</li>
-				</ul>
+			<div id="who" class="who hide textes">
+			<?php
+			$texte = get_texte();
+			echo $texte['texte'];
+			?>
 			</div>
 
-			<div id="calendrier" class="calendrier hide">
+			<div id="calendrier" class="calendrier hide textes">
 				<h1>Retrouvez-nous !</h1>
 				<?php
 				$nb_date = $config['nb_date_future'];
@@ -77,8 +46,9 @@ require_once('init.php');
 				foreach($dates as $date) {
 					setlocale (LC_TIME, 'fr_FR.utf8','fra'); 
 					$jour = strftime("%d %B %Y",strtotime($date['date']));
+					$heure = strftime("%H:%M",strtotime($date['heure']));
 					echo '<p class="date">'.$jour.'</p>'
-						.'<p class="lieu">'.$date['heure'].' '.$date['adresse'].' - '.$date['ville'].' ('.$date['departement'].')</p>';
+						.'<p class="lieu">'.$heure.' '.$date['adresse'].' - '.$date['ville'].' ('.$date['departement'].')</p>';
 				}
 				?>
 				<h2>Vous avez pu nous voir...</h2>
@@ -88,13 +58,15 @@ require_once('init.php');
 				foreach($dates as $date) {
 					setlocale (LC_TIME, 'fr_FR.utf8','fra'); 
 					$jour = strftime("%d %B %Y",strtotime($date['date']));
+					$heure = strftime("%H:%M",strtotime($date['heure']));
 					echo '<p class="date passe">'.$jour.'</p>'
-						.'<p class="lieu passe">'.$date['heure'].' '.$date['adresse'].' - '.$date['ville'].' ('.$date['departement'].')</p>';
+						.'<p class="lieu passe">'.$heure.' '.$date['adresse'].' - '.$date['ville'].' ('.$date['departement'].')</p>';
 				}
 				?>
 			</div>
+			
+			<div id="images-sons" class="images-sons hide textes">
 
-			<div id="images-sons" class="images-sons hide">
 				<h1>PHOTOS</h1>
 				    <div class="gallery">
 			        <?php
@@ -124,24 +96,19 @@ require_once('init.php');
 			                        width="63" height="63"/></a>
 			                </div>'.PHP_EOL;
 			        }
-			        ?>
+			        // afficher la pagination
+			        /*$precedent = $page-1;
+			        $suivant = $page+2;
+			        echo '
+			            <div class="nav">
+			                <a href="index.php?page='.$precedent.'"><</a><a href="index.php?page='.$suivant.'">></a>
+			            </div>';*/
+					?>
 			    </div>
 			    <!--<?= menu_pagination($page + 1, $nb_pages); ?>-->
 
 
-				<!--<div class="slide">
-					<ul class="bxslider">-->
-					<?php
-					/*$pictures = get_pictures();
-					foreach($pictures as $picture) {
-						echo '<li><a href="image.php?id='.$picture['id'].'" target="_blank"><img src="img/slider/'.$picture['nom'].'" alt="" title="" width="63px"/></a></li>';
-					}*/
-					?>
-					<!--</ul>
-				</div>-->
-
 				<h1>VIDÉOS</h1>
-
 				<div class="listing-video">
 					<?php
 					$videos = get_all_video();
@@ -153,7 +120,6 @@ require_once('init.php');
 				</div>
 
 				<h1>MUSIQUE</h1>
-
 				<ul class="playlist">
 					<?php
 					$nb_music = $config['nb_music'];
@@ -170,23 +136,15 @@ require_once('init.php');
 							.'</li>';
 					}
 					?>
-				</ul>	
+				</ul>
 
 			</div>
 
 			<div id="contact" class="contact">
-				<ul class="nom">
-					<li>Michel MAILLARD</li>
-					<li>Tel. : 06 75 25 23 58</li>
-					<li><a class="mail" href="mailto:contact@agua-sonora.fr">contact@agua-sonora.fr</a></li>
-				</ul>
-				<ul class="adresse">
-					<li>-</li>
-					<li><strong>Agua Sonora</strong></li>
-					<li>Blockhaus DY10</li>
-					<li>5 bis, Bd Léon Bureau</li>
-					<li>44200 - Nantes</li>
-				</ul>
+			<?php
+			$contact = get_contact();
+			echo $contact['texte'];
+			?>
 			</div>
 
 		</div><!-- fin de .content -->
@@ -194,21 +152,6 @@ require_once('init.php');
 		</div><!--fin de .screen -->
 
 		<div id="mobile" class="display">
-
-			<!--<div id="contact" class="contact">
-				<ul class="nom">
-					<li>Michel MAILLARD</li>
-					<li>Tel. : 06 75 25 23 58</li>
-					<li>contact@agua-sonora.fr</li>
-				</ul>
-				<ul class="adresse">
-					<li>-</li>
-					<li><strong>Agua Sonora</strong></li>
-					<li>Blockhaus DY10</li>
-					<li>5 bis, Bd Léon Bureau</li>
-					<li>44200 - Nantes</li>
-				</ul>
-			</div>-->
 
 			<img src="img/background.jpg" alt="" title="Agua-Sonora" class="image-mobile"/>
 

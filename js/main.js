@@ -4,41 +4,31 @@ $(document).ready(function() {
 
           /* La largeur minimum de l'affichage est de 768px */
           $('#mobile').addClass('display');
-          /*$(window).load(function(){
-            var hash = window.location.hash;
-            console.log('le hash est '+hash);
-          });*/
-          // état de base : les blocs sont cachés
+          // Les blocs sont masqués par défaut
           $('#content > div').addClass('tabs-hide'); 
           
-          // au clic sur un élément du menu,
+          // Fonction au clic sur le menu
           $('.menu a').click(function(event) {
-              // variable contenant la valeur du lien
+              // Récupération de la valeur du lien
     	        var anchor_init = $(event.currentTarget).attr('href');
-              // variable contenant l'ancre
-              //ar anchor = anchor_init.substring(15);
-    	        // on cache tous les blocs
-    	        $('#content > div').addClass('tabs-hide'); 
-              // on affiche le bloc lié au menu
+              // Affichage du bloc lié au menu
     	        $(anchor_init).removeClass('tabs-hide'); 
-    	        // gestion de la classe active sur le menu
+    	        // Ajout de la classe active sur le menu
     	        $('.menu li').removeClass('active');
     	        $(".menu a[href=\\"+anchor_init+"]").parent('li').addClass('active'); 
     	        event.defaultPrevented;
-              /*$('a .retour').click(function(event) {
-                  $('#images-sons').removeClass('tabs-hide');
-              });*/
           });
+
+          // Personnalisation de la scrollbar
           $(window).load(function(){
               $("#who").mCustomScrollbar();
               $("#calendrier").mCustomScrollbar();
           });
           
-          // si un hash est présent, on simule le clic sur le lien correspondant
+          // Test si un hash est présent, et simulation du clic sur le lien correspondant
           var hash = window.location.hash;
           if(hash) {
             var lien = $('[href="'+hash+'"]')
-            console.log(lien);
             lien.click();
           }
     } 
@@ -47,16 +37,15 @@ $(document).ready(function() {
           /* L'affichage est inférieur à 768px de large */
           $('#mobile').removeClass('display');
           $('.logo').addClass('display');
+          // Les textes sont masqués par défaut
           $(".hide").hide(); 
-          $(".lienvisible").click(function(event) {
-            	$(".lienvisible").hide();
-            	$(event.currentTarget).show();
-              // on récupère le href
-              var val_link = $(event.currentTarget).attr('href'); 
-              console.log(val_link);
-              $('.hide').hide();
-             	$(val_link).show();
-        	});
+            $(".lienvisible").click(function(event) {
+                $(event.currentTarget).show();
+                // Récupération du lien
+                var val_link = $(event.currentTarget).attr('href'); 
+                // Affichage du lien
+                $(val_link).show();
+            });
     }
 
 });
